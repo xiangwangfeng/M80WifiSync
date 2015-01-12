@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "M80DirectoryViewController.h"
+#import "M80PathManager.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    M80DirectoryViewController *vc = [M80DirectoryViewController new];
+    NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
+    M80DirectoryViewController *vc = [[M80DirectoryViewController alloc] initWithDir:dir];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

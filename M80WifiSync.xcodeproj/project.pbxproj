@@ -13,6 +13,8 @@
 		E4D293B51A6370B000563AD0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D293B41A6370B000563AD0 /* Images.xcassets */; };
 		E4D293B81A6370B000563AD0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D293B61A6370B000563AD0 /* LaunchScreen.xib */; };
 		E4D293D31A63714F00563AD0 /* M80DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293D21A63714F00563AD0 /* M80DirectoryViewController.m */; };
+		E4D293D61A63751D00563AD0 /* M80PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293D51A63751D00563AD0 /* M80PathManager.m */; };
+		E4D293D91A637D7E00563AD0 /* M80DirectoryDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293D81A637D7E00563AD0 /* M80DirectoryDatasource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,10 @@
 		E4D293B71A6370B000563AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E4D293D11A63714F00563AD0 /* M80DirectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80DirectoryViewController.h; sourceTree = "<group>"; };
 		E4D293D21A63714F00563AD0 /* M80DirectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80DirectoryViewController.m; sourceTree = "<group>"; };
+		E4D293D41A63751D00563AD0 /* M80PathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80PathManager.h; sourceTree = "<group>"; };
+		E4D293D51A63751D00563AD0 /* M80PathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80PathManager.m; sourceTree = "<group>"; };
+		E4D293D71A637D7E00563AD0 /* M80DirectoryDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80DirectoryDatasource.h; sourceTree = "<group>"; };
+		E4D293D81A637D7E00563AD0 /* M80DirectoryDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80DirectoryDatasource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,8 @@
 			children = (
 				E4D293D11A63714F00563AD0 /* M80DirectoryViewController.h */,
 				E4D293D21A63714F00563AD0 /* M80DirectoryViewController.m */,
+				E4D293D71A637D7E00563AD0 /* M80DirectoryDatasource.h */,
+				E4D293D81A637D7E00563AD0 /* M80DirectoryDatasource.m */,
 			);
 			path = FileExplore;
 			sourceTree = "<group>";
@@ -109,6 +117,8 @@
 		E4D293D01A63712E00563AD0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E4D293D41A63751D00563AD0 /* M80PathManager.h */,
+				E4D293D51A63751D00563AD0 /* M80PathManager.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -139,6 +149,7 @@
 		E4D2939C1A6370B000563AD0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = M80;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = www.xiangwangfeng.com;
 				TargetAttributes = {
@@ -182,7 +193,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D293D91A637D7E00563AD0 /* M80DirectoryDatasource.m in Sources */,
 				E4D293D31A63714F00563AD0 /* M80DirectoryViewController.m in Sources */,
+				E4D293D61A63751D00563AD0 /* M80PathManager.m in Sources */,
 				E4D293B01A6370B000563AD0 /* ViewController.m in Sources */,
 				E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */,
 				E4D293AA1A6370B000563AD0 /* main.m in Sources */,
@@ -283,7 +296,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = M80WifiSync/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -293,7 +308,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = M80WifiSync/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
