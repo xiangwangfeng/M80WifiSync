@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E4D293AA1A6370B000563AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293A91A6370B000563AD0 /* main.m */; };
+		E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293AC1A6370B000563AD0 /* AppDelegate.m */; };
+		E4D293B01A6370B000563AD0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293AF1A6370B000563AD0 /* ViewController.m */; };
+		E4D293B51A6370B000563AD0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D293B41A6370B000563AD0 /* Images.xcassets */; };
+		E4D293B81A6370B000563AD0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D293B61A6370B000563AD0 /* LaunchScreen.xib */; };
+		E4D293D31A63714F00563AD0 /* M80DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293D21A63714F00563AD0 /* M80DirectoryViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E4D293A41A6370B000563AD0 /* M80WifiSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M80WifiSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4D293A81A6370B000563AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4D293A91A6370B000563AD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E4D293AB1A6370B000563AD0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E4D293AC1A6370B000563AD0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E4D293AE1A6370B000563AD0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E4D293AF1A6370B000563AD0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E4D293B41A6370B000563AD0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E4D293B71A6370B000563AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E4D293D11A63714F00563AD0 /* M80DirectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80DirectoryViewController.h; sourceTree = "<group>"; };
+		E4D293D21A63714F00563AD0 /* M80DirectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80DirectoryViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4D293A11A6370B000563AD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E4D2939B1A6370B000563AD0 = {
+			isa = PBXGroup;
+			children = (
+				E4D293A61A6370B000563AD0 /* M80WifiSync */,
+				E4D293A51A6370B000563AD0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E4D293A51A6370B000563AD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4D293A41A6370B000563AD0 /* M80WifiSync.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4D293A61A6370B000563AD0 /* M80WifiSync */ = {
+			isa = PBXGroup;
+			children = (
+				E4D293CD1A63712E00563AD0 /* Classes */,
+				E4D293AB1A6370B000563AD0 /* AppDelegate.h */,
+				E4D293AC1A6370B000563AD0 /* AppDelegate.m */,
+				E4D293AE1A6370B000563AD0 /* ViewController.h */,
+				E4D293AF1A6370B000563AD0 /* ViewController.m */,
+				E4D293B41A6370B000563AD0 /* Images.xcassets */,
+				E4D293B61A6370B000563AD0 /* LaunchScreen.xib */,
+				E4D293A71A6370B000563AD0 /* Supporting Files */,
+			);
+			path = M80WifiSync;
+			sourceTree = "<group>";
+		};
+		E4D293A71A6370B000563AD0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4D293A81A6370B000563AD0 /* Info.plist */,
+				E4D293A91A6370B000563AD0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4D293CD1A63712E00563AD0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E4D293CE1A63712E00563AD0 /* Sections */,
+				E4D293D01A63712E00563AD0 /* Util */,
+			);
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		E4D293CE1A63712E00563AD0 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				E4D293CF1A63712E00563AD0 /* FileExplore */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		E4D293CF1A63712E00563AD0 /* FileExplore */ = {
+			isa = PBXGroup;
+			children = (
+				E4D293D11A63714F00563AD0 /* M80DirectoryViewController.h */,
+				E4D293D21A63714F00563AD0 /* M80DirectoryViewController.m */,
+			);
+			path = FileExplore;
+			sourceTree = "<group>";
+		};
+		E4D293D01A63712E00563AD0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4D293A31A6370B000563AD0 /* M80WifiSync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4D293C71A6370B100563AD0 /* Build configuration list for PBXNativeTarget "M80WifiSync" */;
+			buildPhases = (
+				E4D293A01A6370B000563AD0 /* Sources */,
+				E4D293A11A6370B000563AD0 /* Frameworks */,
+				E4D293A21A6370B000563AD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = M80WifiSync;
+			productName = M80WifiSync;
+			productReference = E4D293A41A6370B000563AD0 /* M80WifiSync.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4D2939C1A6370B000563AD0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = www.xiangwangfeng.com;
+				TargetAttributes = {
+					E4D293A31A6370B000563AD0 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = E4D2939F1A6370B000563AD0 /* Build configuration list for PBXProject "M80WifiSync" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E4D2939B1A6370B000563AD0;
+			productRefGroup = E4D293A51A6370B000563AD0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4D293A31A6370B000563AD0 /* M80WifiSync */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E4D293A21A6370B000563AD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4D293B81A6370B000563AD0 /* LaunchScreen.xib in Resources */,
+				E4D293B51A6370B000563AD0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4D293A01A6370B000563AD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4D293D31A63714F00563AD0 /* M80DirectoryViewController.m in Sources */,
+				E4D293B01A6370B000563AD0 /* ViewController.m in Sources */,
+				E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */,
+				E4D293AA1A6370B000563AD0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E4D293B61A6370B000563AD0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4D293B71A6370B000563AD0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E4D293C51A6370B100563AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E4D293C61A6370B100563AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E4D293C81A6370B100563AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = M80WifiSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E4D293C91A6370B100563AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = M80WifiSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4D2939F1A6370B000563AD0 /* Build configuration list for PBXProject "M80WifiSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4D293C51A6370B100563AD0 /* Debug */,
+				E4D293C61A6370B100563AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4D293C71A6370B100563AD0 /* Build configuration list for PBXNativeTarget "M80WifiSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4D293C81A6370B100563AD0 /* Debug */,
+				E4D293C91A6370B100563AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4D2939C1A6370B000563AD0 /* Project object */;
+}
