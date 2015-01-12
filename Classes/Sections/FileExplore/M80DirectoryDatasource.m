@@ -7,6 +7,7 @@
 //
 
 #import "M80DirectoryDatasource.h"
+#import "M80Util.h"
 
 
 @implementation M80FileModel
@@ -21,6 +22,12 @@
         return self.isDir ? NSOrderedAscending : NSOrderedDescending;
     }
 }
+
+- (UIImage *)icon
+{
+    return nil;
+}
+
 @end
 
 @interface M80DirectoryDatasource ()

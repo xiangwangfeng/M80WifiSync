@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface M80FileModel : NSObject
 @property (nonatomic,copy)         NSString    *filename;
 @property (nonatomic,assign)       BOOL        isDir;
 @property (nonatomic,copy)         NSString    *filepath;
+- (UIImage *)icon;
 @end
 
 @interface M80DirectoryDatasource : NSObject

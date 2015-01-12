@@ -116,7 +116,7 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     NSArray *files = [self.datasource files];
     M80FileModel *mode = [files objectAtIndex:[indexPath row]];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:M80DirectoryCellReuseIdentify];
-    cell.imageView.image = nil;
+    cell.imageView.image = mode.icon;
     cell.textLabel.text = mode.filename;
     return cell;
 }
