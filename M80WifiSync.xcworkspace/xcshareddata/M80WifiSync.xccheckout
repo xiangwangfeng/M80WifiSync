@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>06DB8DB8-DC5C-4544-81C4-7A23FB81411F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>M80WifiSync</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EA42FCA218374DB705D95DFE5DC1EA1A9724F670</key>
+		<string>https://github.com/xiangwangfeng/M80WifiSync.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>M80WifiSync.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EA42FCA218374DB705D95DFE5DC1EA1A9724F670</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/xiangwangfeng/M80WifiSync.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EA42FCA218374DB705D95DFE5DC1EA1A9724F670</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EA42FCA218374DB705D95DFE5DC1EA1A9724F670</string>
+			<key>IDESourceControlWCCName</key>
+			<string>M80WifiSync</string>
+		</dict>
+	</array>
+</dict>
+</plist>

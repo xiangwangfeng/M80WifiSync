@@ -6,3 +6,11 @@ M80WifiSync.xcodeproj/xcuserdata/xiangwangfeng.xcuserdatad/xcschemes/M80WifiSync
 M80WifiSync.xcodeproj/project.xcworkspace/xcuserdata/xiangwangfeng.xcuserdatad/UserInterfaceState.xcuserstate
 
 M80WifiSync.xcodeproj/xcuserdata/xiangwangfeng.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+
+Pods/
+Podfile.lock
+
+M80WifiSync.xcworkspace/xcuserdata/xiangwangfeng.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+M80WifiSync.xcworkspace/xcuserdata/xiangwangfeng.xcuserdatad/UserInterfaceState.xcuserstate
