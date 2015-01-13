@@ -79,17 +79,11 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
                                             
                                                    [self fireAction:text];
         
-                                                   
-                                                   [self dismissViewControllerAnimated:YES
-                                                                            completion:nil];
                                                }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil)
                                                      style:UIAlertActionStyleDefault
-                                                   handler:^(UIAlertAction *action) {
-                                                       [self dismissViewControllerAnimated:YES
-                                                                                completion:nil];
-                                                   }];
+                                                   handler:nil];
     
     [controller addAction:ok];
     [controller addAction:cancel];

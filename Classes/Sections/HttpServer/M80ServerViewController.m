@@ -12,6 +12,7 @@
 #import "M80PathManager.h"
 
 @interface M80ServerViewController ()
+@property (strong, nonatomic) IBOutlet UIButton *filesButton;
 @property (strong, nonatomic) IBOutlet UILabel *linkLabel;
 @property (strong, nonatomic) M80HttpServer *server;
 @end
@@ -21,9 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _server = [[M80HttpServer alloc] init];
+    self.navigationItem.title = NSLocalizedString(@"文件传输", nil);
     
+
+    _server = [[M80HttpServer alloc] init];
     _linkLabel.text = [_server url];
+    
+    CGSize buttonSize = [_filesButton bounds].size;
+    [_filesButton.layer setCornerRadius:buttonSize.width / 2];
+    [_filesButton.layer setMasksToBounds:YES];
+    [_filesButton.layer setBorderColor:[UIColor whiteColor].CGColor];
     
 }
 

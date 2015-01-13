@@ -28,7 +28,10 @@
         NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
         _uploader = [[GCDWebUploader alloc] initWithUploadDirectory:dir];
         _uploader.allowHiddenItems = YES;
-        [_uploader start];
+        [_uploader startWithPort:1280
+                     bonjourName:nil];
+        
+        [self savePasteboard];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(onEnterForeground:)
@@ -51,39 +54,40 @@
 
 
 
-- (void)appendString:(NSString *)content
-{
-    _lastClipContent = content;
-    NSData *data = [[content stringByAppendingString:@"\n"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *filepath = [[[M80PathManager sharedManager] fileStoragePath] stringByAppendingString:@"pasteboard.html"];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath])
-    {
-        NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:filepath];
-        if (handle)
-        {
-            [handle seekToEndOfFile];
-            [handle writeData:data];
-            [handle closeFile];
-        }
-    }
-    else
-    {
-        [data writeToFile:filepath atomically:YES];
-    }
-
-}
 
 #pragma mark - 通知处理
 - (void)onEnterForeground:(NSNotification *)aNotification
 {
-    //复制剪贴板内容
-     UIPasteboard *board = [UIPasteboard generalPasteboard];
-     NSString *string = [board string];
-     if (string != nil && ![_lastClipContent isEqualToString:string])
-     {
-         [self appendString:string];
-     }
+    [self savePasteboard];
+    
+}
+
+#pragma mark - 读取剪切板内容
+- (void)savePasteboard
+{
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    NSString *content = [board string];
+    if (content != nil && ![_lastClipContent isEqualToString:content])
+    {
+        _lastClipContent = content;
+        NSData *data = [[content stringByAppendingString:@"\n"] dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *filepath = [[[M80PathManager sharedManager] fileStoragePath] stringByAppendingString:@"pasteboard.html"];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filepath])
+        {
+            NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:filepath];
+            if (handle)
+            {
+                [handle seekToEndOfFile];
+                [handle writeData:data];
+                [handle closeFile];
+            }
+        }
+        else
+        {
+            [data writeToFile:filepath atomically:YES];
+        }
+    }
 }
 
 

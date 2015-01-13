@@ -18,9 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [self initUIAppearance];
+    
     M80ServerViewController *vc = [[M80ServerViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = vc;
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -40,6 +43,19 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 
+}
+
+- (void)initUIAppearance
+{
+    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    NSDictionary *textAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:textAttributes
+                                                forState:UIControlStateNormal];
 }
 
 @end
