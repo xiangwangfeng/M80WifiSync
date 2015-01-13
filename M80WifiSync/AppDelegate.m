@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "M80DirectoryViewController.h"
-#import "M80PathManager.h"
-#import "M80HttpServer.h"
+#import "M80ServerViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,17 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
-    M80DirectoryViewController *vc = [[M80DirectoryViewController alloc] initWithDir:dir];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    
+    M80ServerViewController *vc = [[M80ServerViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = nav;
+    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
-    
-    [[M80HttpServer sharedServer] start];
-    
-    NSLog(@"%@",[[M80HttpServer sharedServer] url]);
     
     return YES;
 }

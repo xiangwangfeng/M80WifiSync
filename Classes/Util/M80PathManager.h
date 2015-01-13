@@ -10,7 +10,5 @@
 
 @interface M80PathManager : NSObject
 + (instancetype)sharedManager;
-
-- (NSString *)webHostPath;
 - (NSString *)fileStoragePath;
 @end

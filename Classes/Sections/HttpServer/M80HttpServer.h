@@ -9,7 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface M80HttpServer : NSObject
-+ (instancetype)sharedServer;
-- (void)start;
 - (NSString *)url;
 @end

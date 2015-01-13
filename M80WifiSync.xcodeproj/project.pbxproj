@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4CF21AD1A64ECDA0034A42D /* M80ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */; };
+		E4CF21AE1A64ECDA0034A42D /* M80ServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */; };
 		E4D293AA1A6370B000563AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293A91A6370B000563AD0 /* main.m */; };
 		E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293AC1A6370B000563AD0 /* AppDelegate.m */; };
-		E4D293B01A6370B000563AD0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293AF1A6370B000563AD0 /* ViewController.m */; };
 		E4D293B51A6370B000563AD0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D293B41A6370B000563AD0 /* Images.xcassets */; };
 		E4D293B81A6370B000563AD0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D293B61A6370B000563AD0 /* LaunchScreen.xib */; };
 		E4D293D31A63714F00563AD0 /* M80DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293D21A63714F00563AD0 /* M80DirectoryViewController.m */; };
@@ -24,13 +25,14 @@
 		56C01316B4B793CCD8B17CCE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		57EC9B9829A45DC42B008EEB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D471078740BF1D584FAF809A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4CF21AA1A64ECDA0034A42D /* M80ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80ServerViewController.h; sourceTree = "<group>"; };
+		E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80ServerViewController.m; sourceTree = "<group>"; };
+		E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M80ServerViewController.xib; sourceTree = "<group>"; };
 		E4D293A41A6370B000563AD0 /* M80WifiSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M80WifiSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D293A81A6370B000563AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4D293A91A6370B000563AD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4D293AB1A6370B000563AD0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E4D293AC1A6370B000563AD0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E4D293AE1A6370B000563AD0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E4D293AF1A6370B000563AD0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E4D293B41A6370B000563AD0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E4D293B71A6370B000563AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E4D293D11A63714F00563AD0 /* M80DirectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80DirectoryViewController.h; sourceTree = "<group>"; };
@@ -98,8 +100,6 @@
 				E4D293CD1A63712E00563AD0 /* Classes */,
 				E4D293AB1A6370B000563AD0 /* AppDelegate.h */,
 				E4D293AC1A6370B000563AD0 /* AppDelegate.m */,
-				E4D293AE1A6370B000563AD0 /* ViewController.h */,
-				E4D293AF1A6370B000563AD0 /* ViewController.m */,
 				E4D293B41A6370B000563AD0 /* Images.xcassets */,
 				E4D293B61A6370B000563AD0 /* LaunchScreen.xib */,
 				E4D293A71A6370B000563AD0 /* Supporting Files */,
@@ -161,6 +161,9 @@
 			children = (
 				E4D293DD1A639F1400563AD0 /* M80HttpServer.h */,
 				E4D293DE1A639F1400563AD0 /* M80HttpServer.m */,
+				E4CF21AA1A64ECDA0034A42D /* M80ServerViewController.h */,
+				E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */,
+				E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */,
 			);
 			path = HttpServer;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			files = (
 				E4D293B81A6370B000563AD0 /* LaunchScreen.xib in Resources */,
 				E4D293B51A6370B000563AD0 /* Images.xcassets in Resources */,
+				E4CF21AE1A64ECDA0034A42D /* M80ServerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D293D91A637D7E00563AD0 /* M80DirectoryDatasource.m in Sources */,
+				E4CF21AD1A64ECDA0034A42D /* M80ServerViewController.m in Sources */,
 				E4D293D31A63714F00563AD0 /* M80DirectoryViewController.m in Sources */,
 				E4D293DF1A639F1400563AD0 /* M80HttpServer.m in Sources */,
 				E4D293D61A63751D00563AD0 /* M80PathManager.m in Sources */,
-				E4D293B01A6370B000563AD0 /* ViewController.m in Sources */,
 				E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */,
 				E4D293AA1A6370B000563AD0 /* main.m in Sources */,
 				E4D293E31A63B78700563AD0 /* M80Util.m in Sources */,

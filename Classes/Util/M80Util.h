@@ -10,4 +10,6 @@
 #import <UIKit/UIKit.h>
 
 @interface M80Util : NSObject
++ (NSString *)localIP;
++ (NSString *)wifiRouteName;
 @end

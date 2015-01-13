@@ -1,2 +1,2 @@
-pod 'CocoaHTTPServer', '~> 2.3'
+pod 'GCDWebServer/WebUploader', '~> 3.2.1'
 pod 'M80Kit', '~> 1.0.3'

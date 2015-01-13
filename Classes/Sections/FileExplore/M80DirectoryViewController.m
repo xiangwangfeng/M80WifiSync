@@ -49,6 +49,15 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     
     self.navigationItem.rightBarButtonItem = item;
     
+    if ([self.navigationController.viewControllers count] == 1)
+    {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                              target:self
+                                                                              action:@selector(back:)];
+        
+        self.navigationItem.leftBarButtonItem = item;
+
+    }
 }
 
 
@@ -96,6 +105,13 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     {
         [self.tableView reloadData];
     }
+}
+
+#pragma mark -返回
+- (void)back:(id)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 

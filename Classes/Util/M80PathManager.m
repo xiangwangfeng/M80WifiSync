@@ -9,7 +9,6 @@
 #import "M80PathManager.h"
 
 @interface M80PathManager ()
-@property (nonatomic,copy)  NSString    *webHostDir;
 @property (nonatomic,copy)  NSString    *fileStorageDir;
 @end
 
@@ -33,11 +32,6 @@
     return self;
 }
 
-- (NSString *)webHostPath
-{
-    return _webHostDir;
-}
-
 
 - (NSString *)fileStoragePath
 {
@@ -50,13 +44,10 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [paths firstObject];
     
-    _webHostDir = [path stringByAppendingString:@"/Web/"];
-    _fileStorageDir = [path stringByAppendingString:@"/Web/FileStorage/"];
+    _fileStorageDir = [path stringByAppendingString:@"/FileStorage/"];
     
-    [self createDirIfNotExists:_webHostDir];
     [self createDirIfNotExists:_fileStorageDir];
-    [self addSkipBackup:_webHostDir];
-    
+    [self addSkipBackup:_fileStorageDir];
 }
 
 - (void)addSkipBackup:(NSString *)filepath
