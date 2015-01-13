@@ -11,7 +11,5 @@
 @interface M80HttpServer : NSObject
 + (instancetype)sharedServer;
 - (void)start;
-- (void)stop;
-
 - (NSString *)url;
 @end

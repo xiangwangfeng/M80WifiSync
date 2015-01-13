@@ -39,12 +39,9 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-
-    [[M80HttpServer sharedServer] stop];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[M80HttpServer sharedServer] start];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

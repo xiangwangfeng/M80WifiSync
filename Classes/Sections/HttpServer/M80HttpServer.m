@@ -9,6 +9,7 @@
 #import "M80HttpServer.h"
 #import <ifaddrs.h>
 #import <arpa/inet.h>
+#import <UIKit/UIKit.h>
 #import "HttpServer.h"
 #import "M80PathManager.h"
 
@@ -16,6 +17,7 @@
 
 @interface M80HttpServer ()
 @property (nonatomic,strong)    HTTPServer  *server;
+@property (nonatomic,copy)      NSString *lastClipContent;
 @end
 
 @implementation M80HttpServer
@@ -36,19 +38,38 @@
         _server = [[HTTPServer alloc] init];
         [_server setPort:M80ServerPort];
         [_server setDocumentRoot:[[M80PathManager sharedManager] webHostPath]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onEnterForeground:)
+                                                     name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onEnterBackground:)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)start
 {
     [_server start:nil];
+    
+    //复制剪贴板内容
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    NSString *string = [board string];
+    if (string != nil && ![_lastClipContent isEqualToString:string])
+    {
+        [self appendString:string];
+    }
 }
 
-- (void)stop
-{
-    [_server stop];
-}
 
 - (NSString *)url
 {
@@ -81,5 +102,39 @@
     }
     freeifaddrs(interfaces);
     return address;
+}
+
+- (void)appendString:(NSString *)content
+{
+    _lastClipContent = content;
+    NSData *data = [[content stringByAppendingString:@"\n"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *filepath = [[[M80PathManager sharedManager] webHostPath] stringByAppendingString:@"pasteboard.html"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath])
+    {
+        NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:filepath];
+        if (handle)
+        {
+            [handle seekToEndOfFile];
+            [handle writeData:data];
+            [handle closeFile];
+        }
+    }
+    else
+    {
+        [data writeToFile:filepath atomically:YES];
+    }
+
+}
+
+#pragma mark - 通知处理
+- (void)onEnterForeground:(NSNotification *)aNotification
+{
+    [self start];
+}
+
+- (void)onEnterBackground:(NSNotification *)aNotification
+{
+    [_server stop];
 }
 @end
