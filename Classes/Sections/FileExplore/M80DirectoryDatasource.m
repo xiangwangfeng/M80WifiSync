@@ -10,25 +10,7 @@
 #import "M80Util.h"
 
 
-@implementation M80FileModel
-- (NSComparisonResult)compare:(M80FileModel *)model
-{
-    if (self.isDir == model.isDir)
-    {
-        return [self.filename localizedCompare:model.filename];
-    }
-    else
-    {
-        return self.isDir ? NSOrderedAscending : NSOrderedDescending;
-    }
-}
 
-- (UIImage *)icon
-{
-    return nil;
-}
-
-@end
 
 @interface M80DirectoryDatasource ()
 @property (nonatomic,strong)    NSMutableArray  *subFiles;

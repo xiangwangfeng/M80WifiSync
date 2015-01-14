@@ -7,7 +7,6 @@
 //
 
 #import "M80HttpServer.h"
-#import <UIKit/UIKit.h>
 #import "GCDWebUploader.h"
 #import "M80PathManager.h"
 #import "M80Util.h"

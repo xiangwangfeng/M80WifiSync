@@ -10,10 +10,12 @@
 #import "M80HttpServer.h"
 #import "M80DirectoryViewController.h"
 #import "M80PathManager.h"
+#import "M80Kit.h"
 
 @interface M80ServerViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *filesButton;
 @property (strong, nonatomic) IBOutlet UILabel *linkLabel;
+@property (strong, nonatomic) IBOutlet UILabel *networkLabel;
 @property (strong, nonatomic) M80HttpServer *server;
 @end
 
@@ -26,12 +28,23 @@
     
 
     _server = [[M80HttpServer alloc] init];
+    
+    
     _linkLabel.text = [_server url];
+    
+    [_filesButton setBackgroundImage:[[UIColor orangeColor] m80ToImage]
+                            forState:UIControlStateNormal];
     
     CGSize buttonSize = [_filesButton bounds].size;
     [_filesButton.layer setCornerRadius:buttonSize.width / 2];
     [_filesButton.layer setMasksToBounds:YES];
     [_filesButton.layer setBorderColor:[UIColor whiteColor].CGColor];
+    
+    NSString *ssid = [[M80NetworkConfig currentConfig] currentSSID];
+    
+    _networkLabel.text = !ssid ? NSLocalizedString(@"未使用Wifi", nil) :
+    [NSString stringWithFormat:@"%@:%@", NSLocalizedString(@"当前网络", nil),ssid];
+    
     
 }
 

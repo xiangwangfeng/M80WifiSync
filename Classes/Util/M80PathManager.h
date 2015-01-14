@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 www.xiangwangfeng.com. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @interface M80PathManager : NSObject
 + (instancetype)sharedManager;

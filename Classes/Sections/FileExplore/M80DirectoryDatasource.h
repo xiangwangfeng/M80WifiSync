@@ -6,15 +6,9 @@
 //  Copyright (c) 2015 www.xiangwangfeng.com. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
-@interface M80FileModel : NSObject
-@property (nonatomic,copy)         NSString    *filename;
-@property (nonatomic,assign)       BOOL        isDir;
-@property (nonatomic,copy)         NSString    *filepath;
-- (UIImage *)icon;
-@end
+#import "M80FileModel.h"
+
 
 @interface M80DirectoryDatasource : NSObject
 @property (nonatomic,copy)  NSString    *dir;
