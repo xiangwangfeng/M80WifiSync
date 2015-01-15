@@ -38,29 +38,27 @@
     _subFiles = [NSMutableArray array];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *resourceKeys  = @[NSURLIsDirectoryKey];
     BOOL isDir = NO;
     if ([fileManager fileExistsAtPath:_dir isDirectory:&isDir] &&
         isDir)
     {
-        NSURL *dirURL = [NSURL fileURLWithPath:_dir
-                                   isDirectory:YES];
-        NSDirectoryEnumerator *dirEnum = [fileManager enumeratorAtURL:dirURL
-                                           includingPropertiesForKeys:resourceKeys
-                                                              options:NSDirectoryEnumerationSkipsHiddenFiles
-                                                         errorHandler:nil];
-        for (NSURL *fileURL in dirEnum)
+        
+        NSArray *subPaths = [fileManager contentsOfDirectoryAtPath:_dir
+                                                             error:nil];
+        for (NSString *filename in subPaths)
         {
-            NSDictionary *resourceValues = [fileURL resourceValuesForKeys:resourceKeys
-                                                                    error:nil];
-            
+            NSString *filepath = [_dir stringByAppendingString:filename];
             M80FileModel *model = [[M80FileModel alloc] init];
-            model.filepath = [fileURL path];
-            model.filename = [[fileURL path] lastPathComponent];
-            model.isDir    = [resourceValues[NSURLIsDirectoryKey] boolValue];
+            model.filepath = filepath;
+            model.filename = [filepath lastPathComponent];
+            
+            
+            BOOL pathIsDir = NO;
+            [fileManager fileExistsAtPath:filepath
+                              isDirectory:&pathIsDir];
+            model.isDir    = pathIsDir;
             
             [_subFiles addObject:model];
-            
         }
     }
     [_subFiles sortedArrayUsingSelector:@selector(compare:)];
