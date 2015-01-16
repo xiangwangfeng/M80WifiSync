@@ -7,6 +7,7 @@
 //
 
 #import "M80ExploreViewController.h"
+#import "UIView+Toast.h"
 @import QuickLook;
 @import MediaPlayer;
 
@@ -131,31 +132,36 @@
     UIImage *image = [UIImage imageWithContentsOfFile:self.filepath];
     if (image)
     {
-        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         return;
     }
     
     if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.filepath))
     {
-        UISaveVideoAtPathToSavedPhotosAlbum(self.filepath, self, nil, nil);
+        UISaveVideoAtPathToSavedPhotosAlbum(self.filepath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
         return;
     }
 
     
-    
+    [self.view makeToast:NSLocalizedString(@"不支持的文件格式", nil)];
 }
 
 - (void)image:(UIImage *)image
 didFinishSavingWithError:(NSError *) error
   contextInfo:(void *)contextInfo
 {
-    
+    [self.view makeToast:!error ? NSLocalizedString(@"保存成功", nil) : NSLocalizedString(@"保存失败",nil)
+                duration:2
+                position:CSToastPositionCenter];
 }
 
 - (void)video:(NSString *)videoPath
 didFinishSavingWithError:(NSError *) error
   contextInfo:(void *)contextInfo
 {
+    [self.view makeToast:!error ? NSLocalizedString(@"保存成功", nil) : NSLocalizedString(@"保存失败",nil)
+                duration:2
+                position:CSToastPositionCenter];
 
 }
 
