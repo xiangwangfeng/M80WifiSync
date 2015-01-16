@@ -38,12 +38,17 @@
                    @"html"  : @"ic_html",
                    @"rar"   : @"ic_rar",
                    @"zip"   : @"ic_zip",
-                   @"mp4"   : @"ic_mp4",
+                   @"mp4"   : @"ic_mpeg",
                    @"mp3"   : @"ic_mp3",
                    @"png"   : @"ic_png",
                    @"jpg"   : @"ic_jpg",
                    @"jpeg"  : @"ic_jpg",
-                   @"gif"   : @"ic_gif"};
+                   @"gif"   : @"ic_gif",
+                   @"mov"   : @"ic_mov",
+                   @"psd"   : @"ic_psd",
+                   @"3gs"   : @"ic_mpeg",
+                   @"m4v"   : @"ic_mpeg",
+                   };
     }
     return self;
 }

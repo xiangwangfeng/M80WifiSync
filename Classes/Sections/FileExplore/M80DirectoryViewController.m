@@ -9,6 +9,7 @@
 #import "M80DirectoryViewController.h"
 #import "M80PathManager.h"
 #import "M80DirectoryDatasource.h"
+#import "M80ExploreViewController.h"
 
 static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify";
 
@@ -142,7 +143,12 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     }
     else
     {
-        
+        M80ExploreViewController *vc = [M80ExploreViewController exploreViewController:mode.filepath];
+        if (vc)
+        {
+            [self.navigationController pushViewController:vc
+                                                 animated:YES];
+        }
     }
 }
 

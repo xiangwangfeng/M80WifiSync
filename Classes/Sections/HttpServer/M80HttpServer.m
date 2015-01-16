@@ -66,9 +66,9 @@
 {
     UIPasteboard *board = [UIPasteboard generalPasteboard];
     NSString *content = [board string];
-    if (content != nil && ![_lastClipContent isEqualToString:content])
+    if (content != nil && ![self.lastClipContent isEqualToString:content])
     {
-        _lastClipContent = content;
+        self.lastClipContent = content;
         NSData *data = [[content stringByAppendingString:@"\n"] dataUsingEncoding:NSUTF8StringEncoding];
         NSString *filepath = [[[M80PathManager sharedManager] fileStoragePath] stringByAppendingString:@"pasteboard.html"];
         
@@ -87,6 +87,21 @@
             [data writeToFile:filepath atomically:YES];
         }
     }
+}
+
+- (void)setLastClipContent:(NSString *)lastClipContent
+{
+    if (lastClipContent)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:lastClipContent
+                                                  forKey:@"clip"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+- (NSString *)lastClipContent
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"clip"];
 }
 
 

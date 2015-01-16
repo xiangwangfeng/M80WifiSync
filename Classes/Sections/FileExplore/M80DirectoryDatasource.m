@@ -61,7 +61,7 @@
             [_subFiles addObject:model];
         }
     }
-    [_subFiles sortedArrayUsingSelector:@selector(compare:)];
+    [_subFiles sortUsingSelector:@selector(compare:)];
     
 }
 

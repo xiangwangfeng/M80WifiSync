@@ -25,9 +25,11 @@
     [super viewDidLoad];
     
     self.navigationItem.title = NSLocalizedString(@"文件传输", nil);
-    
+    self.view.backgroundColor = M80RGB(0xEDEDED);
 
     _server = [[M80HttpServer alloc] init];
+    
+    
     
     
     _linkLabel.text = [_server url];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E47C72551A66456300F1C115 /* M80FileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E47C72541A66456300F1C115 /* M80FileModel.m */; };
+		E48009471A68B0A00053B03F /* M80ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48009461A68B0A00053B03F /* M80ExploreViewController.m */; };
 		E4CF21AD1A64ECDA0034A42D /* M80ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */; };
 		E4CF21AE1A64ECDA0034A42D /* M80ServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */; };
 		E4D293AA1A6370B000563AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293A91A6370B000563AD0 /* main.m */; };
@@ -29,6 +30,8 @@
 		E47C72531A66456300F1C115 /* M80FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80FileModel.h; sourceTree = "<group>"; };
 		E47C72541A66456300F1C115 /* M80FileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80FileModel.m; sourceTree = "<group>"; };
 		E47C72561A66460100F1C115 /* M80WifiSync.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = M80WifiSync.pch; sourceTree = "<group>"; };
+		E48009451A68B0A00053B03F /* M80ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80ExploreViewController.h; sourceTree = "<group>"; };
+		E48009461A68B0A00053B03F /* M80ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80ExploreViewController.m; sourceTree = "<group>"; };
 		E4CF21AA1A64ECDA0034A42D /* M80ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80ServerViewController.h; sourceTree = "<group>"; };
 		E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80ServerViewController.m; sourceTree = "<group>"; };
 		E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M80ServerViewController.xib; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				E4D293D81A637D7E00563AD0 /* M80DirectoryDatasource.m */,
 				E47C72531A66456300F1C115 /* M80FileModel.h */,
 				E47C72541A66456300F1C115 /* M80FileModel.m */,
+				E48009451A68B0A00053B03F /* M80ExploreViewController.h */,
+				E48009461A68B0A00053B03F /* M80ExploreViewController.m */,
 			);
 			path = FileExplore;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				E4D293D61A63751D00563AD0 /* M80PathManager.m in Sources */,
 				E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */,
 				E47C72551A66456300F1C115 /* M80FileModel.m in Sources */,
+				E48009471A68B0A00053B03F /* M80ExploreViewController.m in Sources */,
 				E4D293AA1A6370B000563AD0 /* main.m in Sources */,
 				E4D293E31A63B78700563AD0 /* M80Util.m in Sources */,
 			);

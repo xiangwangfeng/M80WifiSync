@@ -7,12 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ic_excel@2x.png"
+      "filename" : "xlsx_mac-64_32.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "ic_excel@2x-1.png"
+      "filename" : "xlsx_mac-96_32.png"
     }
   ],
   "info" : {
