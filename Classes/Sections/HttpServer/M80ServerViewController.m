@@ -11,6 +11,7 @@
 #import "M80DirectoryViewController.h"
 #import "M80PathManager.h"
 #import "M80Kit.h"
+#import "UIColor+M80.h"
 
 @interface M80ServerViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *filesButton;

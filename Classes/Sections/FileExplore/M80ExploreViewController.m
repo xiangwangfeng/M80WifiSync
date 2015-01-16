@@ -40,40 +40,7 @@
 
 - (void)onShare:(id)sender
 {
-    UIAlertController *vc = [UIAlertController alertControllerWithTitle:nil
-                                                                message:NSLocalizedString(@"", nil)
-                                                         preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"保存到相册", nil)
-                                                         style:UIAlertActionStyleDefault
-                                                       handler:^(UIAlertAction *action) {
-                                                       
-                                                   }];
-    [vc addAction:saveAction];
-    
-    UIAlertAction *imageAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送图片到微信", nil)
-                                                          style:UIAlertActionStyleDefault
-                                                        handler:^(UIAlertAction *action) {
-                                                            
-                                                        }];
-    [vc addAction:imageAction];
-    
-    UIAlertAction *emoticonAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送表情到微信", nil)
-                                                             style:UIAlertActionStyleDefault
-                                                           handler:^(UIAlertAction *action) {
-                                                               
-                                                           }];
-    [vc addAction:emoticonAction];
-
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil)
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:nil];
-    [vc addAction:cancelAction];
-
-    
-    [self presentViewController:vc
-                       animated:YES
-                     completion:nil];
+    [self fireActions];
 }
 
 + (NSString *)vcClassName:(NSString *)ext
@@ -110,6 +77,101 @@
     }
     vc.filepath = filepath;
     return vc;
+}
+
+#pragma mark - 操作
+- (void)fireActions
+{
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"文件操作", nil)
+                                                                message:NSLocalizedString(@"", nil)
+                                                         preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"保存到相册", nil)
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction *action){
+                                                           [self saveToAlbum];
+                                                       }];
+    [vc addAction:saveAction];
+    
+    UIAlertAction *wexinAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送图片到微信", nil)
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction *action) {
+                                                            [self shareToWX];
+                                                            
+                                                        }];
+    [vc addAction:wexinAction];
+    
+    UIAlertAction *emoticonAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送表情到微信", nil)
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *action) {
+                                                               [self shareEmoticonToWX];
+                                                           }];
+    [vc addAction:emoticonAction];
+    
+    UIAlertAction *yixinAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送图片到易信", nil)
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *action) {
+                                                               [self shareToYX];
+                                                           }];
+    [vc addAction:yixinAction];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil)
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    [vc addAction:cancelAction];
+    
+    
+    [self presentViewController:vc
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)saveToAlbum
+{
+    UIImage *image = [UIImage imageWithContentsOfFile:self.filepath];
+    if (image)
+    {
+        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+        return;
+    }
+    
+    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.filepath))
+    {
+        UISaveVideoAtPathToSavedPhotosAlbum(self.filepath, self, nil, nil);
+        return;
+    }
+
+    
+    
+}
+
+- (void)image:(UIImage *)image
+didFinishSavingWithError:(NSError *) error
+  contextInfo:(void *)contextInfo
+{
+    
+}
+
+- (void)video:(NSString *)videoPath
+didFinishSavingWithError:(NSError *) error
+  contextInfo:(void *)contextInfo
+{
+
+}
+
+- (void)shareToWX
+{
+
+}
+
+- (void)shareToYX
+{
+
+}
+
+- (void)shareEmoticonToWX
+{
+
 }
 @end
 
