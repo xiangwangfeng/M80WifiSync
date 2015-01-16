@@ -36,9 +36,44 @@
     self.navigationItem.rightBarButtonItem = right;
 }
 
+
+
 - (void)onShare:(id)sender
 {
-    NSLog(@"..");
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:nil
+                                                                message:NSLocalizedString(@"", nil)
+                                                         preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"保存到相册", nil)
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction *action) {
+                                                       
+                                                   }];
+    [vc addAction:saveAction];
+    
+    UIAlertAction *imageAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送图片到微信", nil)
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction *action) {
+                                                            
+                                                        }];
+    [vc addAction:imageAction];
+    
+    UIAlertAction *emoticonAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送表情到微信", nil)
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *action) {
+                                                               
+                                                           }];
+    [vc addAction:emoticonAction];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil)
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    [vc addAction:cancelAction];
+
+    
+    [self presentViewController:vc
+                       animated:YES
+                     completion:nil];
 }
 
 + (NSString *)vcClassName:(NSString *)ext
@@ -91,6 +126,11 @@
     [imageView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     [self.view addSubview:imageView];
 }
+
+- (BOOL)isFileImage
+{
+    return YES;
+}
 @end
 
 
@@ -106,6 +146,11 @@
     [_mediaPlayer.view setFrame:self.view.bounds];
     [_mediaPlayer.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     [_mediaPlayer play];
+}
+
+- (BOOL)isFileVideo
+{
+    return YES;
 }
 
 @end

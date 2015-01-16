@@ -138,7 +138,8 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     M80FileModel *mode = [files objectAtIndex:[indexPath row]];
     if (mode.isDir)
     {
-        M80DirectoryViewController *vc = [[M80DirectoryViewController alloc] initWithDir:mode.filepath];
+        NSString *dir = [mode.filepath stringByAppendingString:@"/"];
+        M80DirectoryViewController *vc = [[M80DirectoryViewController alloc] initWithDir:dir];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else

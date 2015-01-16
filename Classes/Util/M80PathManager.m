@@ -48,6 +48,16 @@
     
     [self createDirIfNotExists:_fileStorageDir];
     [self addSkipBackup:_fileStorageDir];
+    
+    NSArray *folders = @[NSLocalizedString(@"文档", nil),
+                         NSLocalizedString(@"图片", nil),
+                         NSLocalizedString(@"视频", nil),
+                         NSLocalizedString(@"表情", nil)];
+    for (NSString *name in folders)
+    {
+        NSString *dir = [_fileStorageDir stringByAppendingString:name];
+        [self createDirIfNotExists:dir];
+    }
 }
 
 - (void)addSkipBackup:(NSString *)filepath
