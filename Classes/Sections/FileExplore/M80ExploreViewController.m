@@ -8,6 +8,9 @@
 
 #import "M80ExploreViewController.h"
 #import "UIView+Toast.h"
+#import "WXApi.h"
+#import "WXApiObject.h"
+
 @import QuickLook;
 @import MediaPlayer;
 
@@ -109,12 +112,6 @@
                                                            }];
     [vc addAction:emoticonAction];
     
-    UIAlertAction *yixinAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送图片到易信", nil)
-                                                             style:UIAlertActionStyleDefault
-                                                           handler:^(UIAlertAction *action) {
-                                                               [self shareToYX];
-                                                           }];
-    [vc addAction:yixinAction];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil)
                                                            style:UIAlertActionStyleCancel
@@ -167,17 +164,50 @@ didFinishSavingWithError:(NSError *) error
 
 - (void)shareToWX
 {
-
-}
-
-- (void)shareToYX
-{
-
+    UIImage *image = [UIImage imageWithContentsOfFile:self.filepath];
+    if (image)
+    {
+        WXImageObject *obj = [WXImageObject object];
+        obj.imageData = [NSData dataWithContentsOfFile:self.filepath];
+        
+        WXMediaMessage *message = [WXMediaMessage message];
+        message.mediaObject = obj;
+        
+        [WXApi sendReq:message];
+        
+    }
+    else
+    {
+        [self.view makeToast:NSLocalizedString(@"文件格式不支持", nil)
+                    duration:2
+                    position:CSToastPositionCenter];
+    }
 }
 
 - (void)shareEmoticonToWX
 {
-
+    UIImage *image = [UIImage imageWithContentsOfFile:self.filepath];
+    if (image)
+    {
+        WXEmoticonObject *obj = [WXEmoticonObject object];
+        obj.emoticonData = [NSData dataWithContentsOfFile:self.filepath];
+        
+        WXMediaMessage *message = [WXMediaMessage message];
+        message.mediaObject = obj;
+        
+        SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+        req.message = message;
+        req.scene = WXSceneSession;
+        
+        [WXApi sendReq:req];
+        
+    }
+    else
+    {
+        [self.view makeToast:NSLocalizedString(@"文件格式不支持", nil)
+                    duration:2
+                    position:CSToastPositionCenter];
+    }
 }
 @end
 
