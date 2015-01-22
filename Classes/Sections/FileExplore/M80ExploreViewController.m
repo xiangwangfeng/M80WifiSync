@@ -173,7 +173,11 @@ didFinishSavingWithError:(NSError *) error
         WXMediaMessage *message = [WXMediaMessage message];
         message.mediaObject = obj;
         
-        [WXApi sendReq:message];
+        SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+        req.message = message;
+        req.scene = WXSceneSession;
+        
+        [WXApi sendReq:req];
         
     }
     else
@@ -189,18 +193,20 @@ didFinishSavingWithError:(NSError *) error
     UIImage *image = [UIImage imageWithContentsOfFile:self.filepath];
     if (image)
     {
+        NSData *imageData = [NSData dataWithContentsOfFile:self.filepath];
         WXEmoticonObject *obj = [WXEmoticonObject object];
-        obj.emoticonData = [NSData dataWithContentsOfFile:self.filepath];
+        obj.emoticonData = imageData;
         
         WXMediaMessage *message = [WXMediaMessage message];
         message.mediaObject = obj;
+        [message setThumbData:imageData];
         
         SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
         req.message = message;
         req.scene = WXSceneSession;
         
         [WXApi sendReq:req];
-        
+
     }
     else
     {

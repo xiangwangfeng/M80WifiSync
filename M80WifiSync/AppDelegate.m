@@ -8,10 +8,12 @@
 
 #import "AppDelegate.h"
 #import "M80ServerViewController.h"
+#import "WXApi.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
+
 
 @implementation AppDelegate
 
@@ -26,8 +28,11 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
+    [WXApi registerApp:@"wx1ab7c4f3991eb5eb"];
+    
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
@@ -56,6 +61,28 @@
     NSDictionary *textAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:textAttributes
                                                 forState:UIControlStateNormal];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WXApi handleOpenURL:url
+                       delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WXApi handleOpenURL:url
+                       delegate:self];
+}
+
+-(void) onReq:(BaseReq*)req
+{
+
+}
+
+-(void) onResp:(BaseResp*)resp
+{
+
 }
 
 @end
