@@ -10,6 +10,7 @@
 #import "UIView+Toast.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "M80Kit.h"
 
 @import QuickLook;
 @import MediaPlayer;
@@ -172,6 +173,7 @@ didFinishSavingWithError:(NSError *) error
         
         WXMediaMessage *message = [WXMediaMessage message];
         message.mediaObject = obj;
+        [message setThumbImage:[image m80ScaledWithPixels:40000]];
         
         SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
         req.message = message;
@@ -199,7 +201,7 @@ didFinishSavingWithError:(NSError *) error
         
         WXMediaMessage *message = [WXMediaMessage message];
         message.mediaObject = obj;
-        [message setThumbData:imageData];
+        [message setThumbImage:[image m80ScaledWithPixels:40000]];
         
         SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
         req.message = message;
