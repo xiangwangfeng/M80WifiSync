@@ -7,13 +7,14 @@
 //
 
 #import "M80DirectoryViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "M80PathManager.h"
 #import "M80DirectoryDatasource.h"
 #import "M80ExploreViewController.h"
 
 static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify";
 
-@interface M80DirectoryViewController ()
+@interface M80DirectoryViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong)    M80DirectoryDatasource  *datasource;
 @end
 
@@ -46,7 +47,7 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                           target:self
-                                                                          action:@selector(addNewDir:)];
+                                                                          action:@selector(addNewItem:)];
     
     self.navigationItem.rightBarButtonItem = item;
     
@@ -62,8 +63,38 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
 }
 
 
-#pragma mark - 添加目录
-- (void)addNewDir:(id)sender
+#pragma mark - 添加新的数据
+- (void)addNewItem:(id)sender
+{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:nil
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *addNewDirAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"新建目录", nil)
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction *action) {
+                                                                [self addNewDir];
+                                                            }];
+    [controller addAction:addNewDirAction];
+    
+    UIAlertAction *addNewMediaAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"添加多媒体", nil)
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  [self addNewMedia];
+                                                              }];
+    [controller addAction:addNewMediaAction];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil)
+                                                     style:UIAlertActionStyleCancel
+                                                   handler:nil];
+    [controller addAction:cancel];
+    
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)addNewDir
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"新建目录", nil)
                                                                         message:@""
@@ -83,7 +114,7 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
                                                }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil)
-                                                     style:UIAlertActionStyleDefault
+                                                     style:UIAlertActionStyleCancel
                                                    handler:nil];
     
     [controller addAction:ok];
@@ -100,6 +131,36 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     {
         [self.tableView reloadData];
     }
+}
+
+- (void)addNewMedia
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ipc.mediaTypes = @[(__bridge NSString *)kUTTypeMovie,(__bridge NSString *)kUTTypeImage];
+    ipc.delegate = self;
+    
+    [self presentViewController:ipc
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES
+                               completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    __weak typeof(self) weakSelf = self;
+    [self.datasource createMedia:info
+                      completion:^{
+                          [weakSelf.tableView reloadData];
+                      }];
+    
+    [picker dismissViewControllerAnimated:YES
+                               completion:nil];
 }
 
 #pragma mark -返回

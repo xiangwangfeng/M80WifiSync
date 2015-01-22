@@ -12,6 +12,7 @@
 		E48009471A68B0A00053B03F /* M80ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48009461A68B0A00053B03F /* M80ExploreViewController.m */; };
 		E48A9A9C1A70D1890026F7AD /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E48A9A9B1A70D1890026F7AD /* libsqlite3.0.dylib */; };
 		E48A9A9E1A70D1DE0026F7AD /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E48A9A9D1A70D1DE0026F7AD /* libc++.dylib */; };
+		E49813161A70EA35007A2B1D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49813151A70EA35007A2B1D /* MobileCoreServices.framework */; };
 		E4CF21AD1A64ECDA0034A42D /* M80ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */; };
 		E4CF21AE1A64ECDA0034A42D /* M80ServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */; };
 		E4D293AA1A6370B000563AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293A91A6370B000563AD0 /* main.m */; };
@@ -40,6 +41,7 @@
 		E48009461A68B0A00053B03F /* M80ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80ExploreViewController.m; sourceTree = "<group>"; };
 		E48A9A9B1A70D1890026F7AD /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E48A9A9D1A70D1DE0026F7AD /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		E49813151A70EA35007A2B1D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E4CF21AA1A64ECDA0034A42D /* M80ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80ServerViewController.h; sourceTree = "<group>"; };
 		E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80ServerViewController.m; sourceTree = "<group>"; };
 		E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M80ServerViewController.xib; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49813161A70EA35007A2B1D /* MobileCoreServices.framework in Frameworks */,
 				E48A9A9E1A70D1DE0026F7AD /* libc++.dylib in Frameworks */,
 				E48A9A9C1A70D1890026F7AD /* libsqlite3.0.dylib in Frameworks */,
 				867CCBEF1A6BEF040008589D /* libWeChatSDK.a in Frameworks */,
@@ -99,6 +102,7 @@
 		AAFC87C5769A8C40F6205B4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E49813151A70EA35007A2B1D /* MobileCoreServices.framework */,
 				E48A9A9D1A70D1DE0026F7AD /* libc++.dylib */,
 				E48A9A9B1A70D1890026F7AD /* libsqlite3.0.dylib */,
 				D471078740BF1D584FAF809A /* libPods.a */,

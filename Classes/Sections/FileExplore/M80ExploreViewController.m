@@ -87,8 +87,8 @@
 #pragma mark - 操作
 - (void)fireActions
 {
-    UIAlertController *vc = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"文件操作", nil)
-                                                                message:NSLocalizedString(@"", nil)
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:nil
+                                                                message:nil
                                                          preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"保存到相册", nil)

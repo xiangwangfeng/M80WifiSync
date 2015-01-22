@@ -158,4 +158,65 @@
     }
 }
 
+#pragma mark -添加新媒体
+- (void)createMedia:(NSDictionary *)info
+         completion:(dispatch_block_t)completion
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    if (image)
+    {
+        NSString *filename = [NSString stringWithFormat:@"%@.jpg",[NSDate date]];
+        NSString *filepath = [_dir stringByAppendingString:filename];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *data = UIImageJPEGRepresentation(image, 0.75);
+            if ([data writeToFile:filepath atomically:YES])
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    M80FileModel *model = [[M80FileModel alloc] init];
+                    model.filename = filename;
+                    model.filepath = filepath;
+                    model.isDir = NO;
+                    [self addFileModelAndSort:model];
+                    
+                    if (completion)
+                    {
+                        completion();
+                    }
+                });
+            }
+            
+        });
+    }
+    else
+    {
+        NSURL *url = info[UIImagePickerControllerMediaURL];
+        if (url)
+        {
+            NSString *filename = [NSString stringWithFormat:@"%@.mp4",[NSDate date]];
+            NSString *filepath = [_dir stringByAppendingString:filename];
+            NSURL *targetFileURL = [NSURL fileURLWithPath:filepath];
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                if ([[NSFileManager defaultManager] copyItemAtURL:url
+                                                            toURL:targetFileURL
+                                                            error:nil])
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        M80FileModel *model = [[M80FileModel alloc] init];
+                        model.filename = filename;
+                        model.filepath = filepath;
+                        model.isDir = NO;
+                        [self addFileModelAndSort:model];
+                        
+                        if (completion)
+                        {
+                            completion();
+                        }
+                    });
+                }
+                
+            });
+        }
+    }
+}
+
 @end

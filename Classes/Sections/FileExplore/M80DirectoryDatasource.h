@@ -14,8 +14,11 @@
 @property (nonatomic,copy)  NSString    *dir;
 
 + (instancetype)datasource:(NSString *)dir;
+
 - (NSArray *)files;
 
 - (BOOL)removeFile:(NSString *)filepath;
 - (BOOL)createDir:(NSString *)dirName;
+- (void)createMedia:(NSDictionary *)info
+         completion:(dispatch_block_t)completion;
 @end
