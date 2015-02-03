@@ -290,13 +290,10 @@ didFinishSavingWithError:(NSError *) error
 
 - (void)addErrorTip
 {
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"不支持的文件类型", nil)
-                                                                        message:NSLocalizedString(@"当前文件展示不支持预览", nil)
-                                                                 preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:controller
-                       animated:YES
-                     completion:nil];
-                                    
+    [self.view makeToast:NSLocalizedString(@"当前文件暂时不支持预览", nil)
+                duration:2
+                position:CSToastPositionCenter];
+    
 }
 
 #pragma mark - QL
