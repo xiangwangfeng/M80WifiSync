@@ -296,7 +296,9 @@ didFinishSavingWithError:(NSError *) error
     
 }
 
-#pragma mark - QL
+
+
+#pragma mark - QLPreview
 - (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller
 {
     return 1;
@@ -304,7 +306,48 @@ didFinishSavingWithError:(NSError *) error
 
 - (id <QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index
 {
-    return [NSURL fileURLWithPath:self.filepath];
+    return [NSURL fileURLWithPath:[self datasourcePath]];
+}
+
+- (NSString *)datasourcePath
+{
+    NSString *filepath = self.filepath;
+    NSString *ext = [[self.filepath pathExtension] lowercaseString];
+    if ([ext isEqualToString:@"txt"] ||
+        [ext isEqualToString:@"html"])
+    {
+        NSString *filename = [filepath m80MD5];
+        NSString *dstFilepath = [NSString stringWithFormat:@"%@/%@.%@",NSTemporaryDirectory(),filename,ext];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:dstFilepath])
+        {
+            NSString *content = [self fileContent];
+            if (content && [content writeToFile:dstFilepath
+                                     atomically:YES
+                                       encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingUTF16)
+                                          error:nil])
+            {
+                
+                filepath = dstFilepath;
+            }
+            
+        }
+        
+    }
+    return filepath;
+}
+
+- (NSString *)fileContent
+{
+    NSString *content = [[NSString alloc] initWithContentsOfFile:self.filepath
+                                                        encoding:NSUTF8StringEncoding
+                                                           error:nil];
+    if (content == nil)
+    {
+        content = [[NSString alloc] initWithContentsOfFile:self.filepath
+                                                  encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
+                                                     error:nil];
+    }
+    return content;
 }
 
 @end
