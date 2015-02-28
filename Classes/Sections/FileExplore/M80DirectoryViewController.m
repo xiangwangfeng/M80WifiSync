@@ -8,6 +8,7 @@
 
 #import "M80DirectoryViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "M80Kit.h"
 #import "M80PathManager.h"
 #import "M80DirectoryDatasource.h"
 #import "M80ExploreViewController.h"
@@ -15,7 +16,9 @@
 static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify";
 
 @interface M80DirectoryViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (nonatomic,copy)      NSString *dir;
 @property (nonatomic,strong)    M80DirectoryDatasource  *datasource;
+@property (nonatomic,strong)    M80FolderMonitor *monitor;
 @end
 
 @implementation M80DirectoryViewController
@@ -23,6 +26,7 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
 {
     if (self = [super init])
     {
+        _dir = [dir copy];
         _datasource = [M80DirectoryDatasource datasource:dir];
     }
     return self;
@@ -36,6 +40,22 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
            forCellReuseIdentifier:M80DirectoryCellReuseIdentify];
     
     [self setupNavBar];
+    
+    
+    
+    __weak typeof(self) weakSelf = self;
+    NSURL *url = [NSURL fileURLWithPath:_dir];
+    _monitor = [M80FolderMonitor monitor:url
+                                   block:^{
+                                       [weakSelf reloadAll];
+                                   }];
+    [_monitor start];
+}
+
+- (void)reloadAll
+{
+    _datasource = [M80DirectoryDatasource datasource:_dir];
+    [self.tableView reloadData];
 }
 
 - (void)setupNavBar
