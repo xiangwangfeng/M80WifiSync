@@ -39,6 +39,8 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:M80DirectoryCellReuseIdentify];
     
+    [self.tableView m80HideExtraCell];
+    
     [self setupNavBar];
     
     
