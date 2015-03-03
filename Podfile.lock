@@ -9,16 +9,19 @@ PODS:
   - M80Kit/Categories (1.0.6)
   - M80Kit/Network (1.0.6)
   - M80Kit/Util (1.0.6)
+  - Reachability (3.2)
   - Toast (2.4)
 
 DEPENDENCIES:
   - GCDWebServer/WebUploader (~> 3.2.1)
   - M80Kit (~> 1.0.4)
+  - Reachability (~> 3.2)
   - Toast (~> 2.4)
 
 SPEC CHECKSUMS:
   GCDWebServer: 285fde9951ab2cd87c2d9d74735fee977a16fe04
   M80Kit: 87e68fe2d17a8bf28643edad9e20cf5571014a2c
+  Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   Toast: 6a3c2b1d70e426b26d130971c369670eac7aa9ce
 
 COCOAPODS: 0.35.0
