@@ -55,7 +55,7 @@
                          NSLocalizedString(@"表情", nil)];
     for (NSString *name in folders)
     {
-        NSString *dir = [_fileStorageDir stringByAppendingString:name];
+        NSString *dir = [_fileStorageDir stringByAppendingPathComponent:name];
         [self createDirIfNotExists:dir];
     }
 }

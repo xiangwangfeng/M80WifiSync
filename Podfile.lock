@@ -3,9 +3,9 @@ PODS:
   - GCDWebServer/WebUploader (3.2.2):
     - GCDWebServer/Core
   - M80Kit (1.0.6):
-    - M80Kit/Categories (= 1.0.6)
-    - M80Kit/Network (= 1.0.6)
-    - M80Kit/Util (= 1.0.6)
+    - M80Kit/Categories
+    - M80Kit/Network
+    - M80Kit/Util
   - M80Kit/Categories (1.0.6)
   - M80Kit/Network (1.0.6)
   - M80Kit/Util (1.0.6)
@@ -24,4 +24,4 @@ SPEC CHECKSUMS:
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   Toast: 6a3c2b1d70e426b26d130971c369670eac7aa9ce
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.34.4

@@ -20,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    
     [self initUIAppearance];
     
     M80ServerViewController *vc = [[M80ServerViewController alloc] init];
@@ -75,12 +77,12 @@
                        delegate:self];
 }
 
--(void) onReq:(BaseReq*)req
+-(void)onReq:(BaseReq*)req
 {
 
 }
 
--(void) onResp:(BaseResp*)resp
+-(void)onResp:(BaseResp*)resp
 {
 
 }
