@@ -31,7 +31,7 @@
     [self.window makeKeyAndVisible];
     
     [WXApi registerApp:@"wx1ab7c4f3991eb5eb"];
-    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     return YES;
 }
 
@@ -40,9 +40,11 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
