@@ -64,6 +64,7 @@
 		E4D293E11A63B78700563AD0 /* M80Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80Util.h; sourceTree = "<group>"; };
 		E4D293E21A63B78700563AD0 /* M80Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80Util.m; sourceTree = "<group>"; };
 		E4DF095E1BF96DC6009A9BDC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E4F255291BFDBE6E00939297 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		867CCBEB1A6BEF040008589D /* Weixin */ = {
 			isa = PBXGroup;
 			children = (
+				E4F255291BFDBE6E00939297 /* WechatAuthSDK.h */,
 				867CCBEC1A6BEF040008589D /* libWeChatSDK.a */,
 				867CCBED1A6BEF040008589D /* WXApi.h */,
 				867CCBEE1A6BEF040008589D /* WXApiObject.h */,
