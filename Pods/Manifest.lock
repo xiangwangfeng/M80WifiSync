@@ -1,0 +1,27 @@
+PODS:
+  - GCDWebServer/Core (3.2.2)
+  - GCDWebServer/WebUploader (3.2.2):
+    - GCDWebServer/Core
+  - M80Kit (1.0.6):
+    - M80Kit/Categories (= 1.0.6)
+    - M80Kit/Network (= 1.0.6)
+    - M80Kit/Util (= 1.0.6)
+  - M80Kit/Categories (1.0.6)
+  - M80Kit/Network (1.0.6)
+  - M80Kit/Util (1.0.6)
+  - Reachability (3.2)
+  - Toast (2.4)
+
+DEPENDENCIES:
+  - GCDWebServer/WebUploader (~> 3.2.1)
+  - M80Kit (~> 1.0.4)
+  - Reachability (~> 3.2)
+  - Toast (~> 2.4)
+
+SPEC CHECKSUMS:
+  GCDWebServer: 5320220ad0d497da8e7beca1396f0c82d4f83730
+  M80Kit: 242a72aed264c7feb03dad314fcce8acf341691c
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+
+COCOAPODS: 0.37.1
