@@ -70,7 +70,7 @@
     {
         self.lastClipContent = content;
         NSData *data = [[content stringByAppendingString:@"\n"] dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *filepath = [[[M80PathManager sharedManager] fileStoragePath] stringByAppendingString:@"pasteboard.html"];
+        NSString *filepath = [[[M80PathManager sharedManager] fileStoragePath] stringByAppendingString:@"pasteboard.txt"];
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:filepath])
         {
