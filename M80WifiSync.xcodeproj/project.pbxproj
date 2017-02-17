@@ -243,7 +243,8 @@
 				TargetAttributes = {
 					E4D293A31A6370B000563AD0 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 8D3PQJM58X;
+						DevelopmentTeam = F79NZ79TVZ;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -431,6 +432,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F79NZ79TVZ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = M80WifiSync/M80WifiSync.pch;
 				INFOPLIST_FILE = M80WifiSync/Info.plist;
@@ -440,7 +443,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Classes/Weixin",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xiangwangfeng.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = www.xiangwangfeng.com.udisk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,6 +455,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F79NZ79TVZ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = M80WifiSync/M80WifiSync.pch;
 				INFOPLIST_FILE = M80WifiSync/Info.plist;
@@ -461,7 +466,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Classes/Weixin",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xiangwangfeng.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = www.xiangwangfeng.com.udisk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

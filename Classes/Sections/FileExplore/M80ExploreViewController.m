@@ -106,6 +106,8 @@
                                                         }];
     [vc addAction:wexinAction];
     
+    
+    
     UIAlertAction *emoticonAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"发送表情到微信", nil)
                                                              style:UIAlertActionStyleDefault
                                                            handler:^(UIAlertAction *action) {

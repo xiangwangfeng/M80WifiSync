@@ -7,14 +7,13 @@
 //
 
 #import "M80ServerViewController.h"
-#import "M80HttpServer.h"
 #import "M80DirectoryViewController.h"
 #import "M80PathManager.h"
 #import "M80Kit.h"
 #import "Reachability.h"
 
 @interface M80ServerViewController ()
-@property (strong, nonatomic) M80HttpServer *server;
+
 @property (strong, nonatomic) Reachability *reachability;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @end
@@ -33,7 +32,6 @@
     self.navigationItem.title = NSLocalizedString(@"使用说明", nil);
     self.view.backgroundColor = [UIColor whiteColor];
 
-    _server = [[M80HttpServer alloc] init];
 
     _reachability = [Reachability reachabilityForInternetConnection];
     [_reachability startNotifier];
@@ -43,6 +41,7 @@
                                                  name:kReachabilityChangedNotification
                                                object:nil];
     _textView.dataDetectorTypes = UIDataDetectorTypeLink;
+    _textView.font = [UIFont systemFontOfSize:20];
     [self updateUI];
 }
 
@@ -51,7 +50,7 @@
     BOOL wifiOn = [_reachability isReachableViaWiFi];
     if (wifiOn)
     {
-        _textView.text = [NSString stringWithFormat:@"请在电脑浏览器中输入以下网址\n%@\n并保证手机和电脑处于同一网络下",[_server url]];
+        _textView.text = [NSString stringWithFormat:@"请在电脑浏览器中输入以下网址：\n%@\n并保证手机和电脑处于同一网络下",[_server url]];
     }
     else
     {

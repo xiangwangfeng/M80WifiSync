@@ -187,6 +187,10 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     return [[self.datasource files] count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 56;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
