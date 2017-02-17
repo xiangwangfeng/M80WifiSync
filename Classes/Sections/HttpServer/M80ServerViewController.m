@@ -33,7 +33,7 @@
     
     
     self.navigationItem.title = NSLocalizedString(@"文件传输", nil);
-    self.view.backgroundColor = M80RGB(0xEDEDED);
+    self.view.backgroundColor = [UIColor whiteColor];
 
     _server = [[M80HttpServer alloc] init];
     
