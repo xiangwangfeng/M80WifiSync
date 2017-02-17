@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "M80ServerViewController.h"
 #import "WXApi.h"
+#import "M80ServerViewController.h"
+#import "M80DirectoryViewController.h"
+#import "M80PathManager.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -20,14 +22,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    
+
     [self initUIAppearance];
     
-    M80ServerViewController *vc = [[M80ServerViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    NSMutableArray *vcs = [NSMutableArray array];
+    {
+        NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
+        M80DirectoryViewController *vc = [[M80DirectoryViewController alloc] initWithDir:dir];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [vcs addObject:nav];
+    }
+    {
+        M80ServerViewController *vc = [[M80ServerViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [vcs addObject:nav];
+    }
+    UITabBarController *tabController = [[UITabBarController alloc] init];
+    [tabController setViewControllers:vcs];
+    
+    
+    
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = nav;
+    self.window.rootViewController = tabController;
     [self.window makeKeyAndVisible];
     
     [WXApi registerApp:@"wx1ab7c4f3991eb5eb"];

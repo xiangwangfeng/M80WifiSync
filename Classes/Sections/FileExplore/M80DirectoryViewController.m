@@ -72,16 +72,6 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
                                                                           action:@selector(addNewItem:)];
     
     self.navigationItem.rightBarButtonItem = item;
-    
-    if ([self.navigationController.viewControllers count] == 1)
-    {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                              target:self
-                                                                              action:@selector(back:)];
-        
-        self.navigationItem.leftBarButtonItem = item;
-
-    }
 }
 
 
@@ -183,13 +173,6 @@ static NSString *M80DirectoryCellReuseIdentify = @"M80DirectoryCellReuseIdentify
     
     [picker dismissViewControllerAnimated:YES
                                completion:nil];
-}
-
-#pragma mark -返回
-- (void)back:(id)sender
-{
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
 }
 
 

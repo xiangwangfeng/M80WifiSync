@@ -30,13 +30,6 @@
         [_uploader startWithPort:1280
                      bonjourName:nil];
         
-        [self savePasteboard];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onEnterForeground:)
-                                                     name:UIApplicationWillEnterForegroundNotification
-                                                   object:nil];
-        
     }
     return self;
 }
@@ -52,57 +45,6 @@
 }
 
 
-
-
-#pragma mark - 通知处理
-- (void)onEnterForeground:(NSNotification *)aNotification
-{
-    [self savePasteboard];
-    
-}
-
-#pragma mark - 读取剪切板内容
-- (void)savePasteboard
-{
-    UIPasteboard *board = [UIPasteboard generalPasteboard];
-    NSString *content = [board string];
-    if (content != nil && ![self.lastClipContent isEqualToString:content])
-    {
-        self.lastClipContent = content;
-        NSData *data = [[content stringByAppendingString:@"\n"] dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *filepath = [[[M80PathManager sharedManager] fileStoragePath] stringByAppendingString:@"pasteboard.txt"];
-        
-        if ([[NSFileManager defaultManager] fileExistsAtPath:filepath])
-        {
-            NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:filepath];
-            if (handle)
-            {
-                [handle seekToEndOfFile];
-                [handle writeData:data];
-                [handle closeFile];
-            }
-        }
-        else
-        {
-            [data writeToFile:filepath atomically:YES];
-        }
-    }
-}
-
-- (void)setLastClipContent:(NSString *)lastClipContent
-{
-    if (lastClipContent)
-    {
-        [[NSUserDefaults standardUserDefaults] setObject:lastClipContent
-                                                  forKey:@"clip"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-}
-
-- (NSString *)lastClipContent
-{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"clip"];
-}
 
 
 @end

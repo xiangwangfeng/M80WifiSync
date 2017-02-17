@@ -14,11 +14,9 @@
 #import "Reachability.h"
 
 @interface M80ServerViewController ()
-@property (strong, nonatomic) IBOutlet UIButton *filesButton;
-@property (strong, nonatomic) IBOutlet UILabel *linkLabel;
-@property (strong, nonatomic) IBOutlet UILabel *networkLabel;
 @property (strong, nonatomic) M80HttpServer *server;
 @property (strong, nonatomic) Reachability *reachability;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @end
 
 @implementation M80ServerViewController
@@ -32,21 +30,11 @@
     [super viewDidLoad];
     
     
-    self.navigationItem.title = NSLocalizedString(@"文件传输", nil);
+    self.navigationItem.title = NSLocalizedString(@"使用说明", nil);
     self.view.backgroundColor = [UIColor whiteColor];
 
     _server = [[M80HttpServer alloc] init];
-    
-    [_filesButton setBackgroundImage:[[UIColor orangeColor] m80ToImage]
-                            forState:UIControlStateNormal];
-    
-    CGSize buttonSize = [_filesButton bounds].size;
-    [_filesButton.layer setCornerRadius:buttonSize.width / 2];
-    [_filesButton.layer setMasksToBounds:YES];
-    [_filesButton.layer setBorderColor:[UIColor whiteColor].CGColor];
 
-    [self resetNetworkUI];
-    
     _reachability = [Reachability reachabilityForInternetConnection];
     [_reachability startNotifier];
     
@@ -54,14 +42,21 @@
                                              selector:@selector(onNetChanged:)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
+    _textView.dataDetectorTypes = UIDataDetectorTypeLink;
+    [self updateUI];
 }
 
-- (void)resetNetworkUI
+- (void)updateUI
 {
-    _linkLabel.text = [_server url];
-    NSString *ssid = [[M80NetworkConfig currentConfig] currentSSID];
-    _networkLabel.text = !ssid ? NSLocalizedString(@"未使用Wifi", nil) :
-    [NSString stringWithFormat:@"%@:%@", NSLocalizedString(@"当前网络", nil),ssid];
+    BOOL wifiOn = [_reachability isReachableViaWiFi];
+    if (wifiOn)
+    {
+        _textView.text = [NSString stringWithFormat:@"请在电脑浏览器中输入以下网址\n%@\n并保证手机和电脑处于同一网络下",[_server url]];
+    }
+    else
+    {
+        _textView.text = @"手机没有接入 wifi，请连接 wifi，并保证手机和电脑处于同一网络下";
+    }
 }
 
 
@@ -72,16 +67,7 @@
 
 - (void)onNetChanged:(NSNotification *)aNotification
 {
-    [self resetNetworkUI];
-}
-
-- (IBAction)showFiles:(id)sender {
-    NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
-    M80DirectoryViewController *vc = [[M80DirectoryViewController alloc] initWithDir:dir];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nav
-                       animated:YES
-                     completion:nil];
+    [self updateUI];
 }
 
 

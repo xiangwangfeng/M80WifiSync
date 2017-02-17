@@ -11,9 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="M80ServerViewController">
             <connections>
-                <outlet property="filesButton" destination="kZW-HZ-eP5" id="duX-0l-eHN"/>
-                <outlet property="linkLabel" destination="R3D-Jg-95y" id="6m8-Ty-5GT"/>
-                <outlet property="networkLabel" destination="w2f-6b-3Ws" id="Ai0-ua-mes"/>
+                <outlet property="textView" destination="UV2-0w-GbH" id="LXj-8J-fhM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,64 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="在电脑浏览器输入以下网址" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpV-zx-taH">
-                    <rect key="frame" x="98" y="192" width="180" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3D-Jg-95y">
-                    <rect key="frame" x="165" y="228" width="45" height="22"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZW-HZ-eP5">
-                    <rect key="frame" x="138" y="445" width="100" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="100" id="BV1-Kb-OBZ"/>
-                        <constraint firstAttribute="width" constant="100" id="Evn-VF-6wk"/>
-                    </constraints>
-                    <state key="normal" title="我的文件"/>
-                    <connections>
-                        <action selector="showFiles:" destination="-1" eventType="touchUpInside" id="nNO-7t-C8x"/>
-                    </connections>
-                </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi" translatesAutoresizingMaskIntoConstraints="NO" id="Z6M-ux-dFj">
-                    <rect key="frame" x="155" y="108" width="64" height="64"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2f-6b-3Ws">
-                    <rect key="frame" x="169" y="273" width="38" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(请保证手机和电脑在同一网络)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSR-BM-0qR">
-                    <rect key="frame" x="85" y="291" width="204" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UV2-0w-GbH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="181"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstAttribute="centerX" secondItem="R3D-Jg-95y" secondAttribute="centerX" id="0Y3-hW-Yps"/>
-                <constraint firstAttribute="bottom" secondItem="kZW-HZ-eP5" secondAttribute="bottom" constant="122" id="6PO-8L-FLc"/>
-                <constraint firstAttribute="centerX" secondItem="kZW-HZ-eP5" secondAttribute="centerX" id="ChO-Nd-U8W"/>
-                <constraint firstItem="R3D-Jg-95y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="228" id="LwB-96-Y7f"/>
-                <constraint firstAttribute="centerX" secondItem="CpV-zx-taH" secondAttribute="centerX" id="O3t-Pi-9s0"/>
-                <constraint firstItem="w2f-6b-3Ws" firstAttribute="top" secondItem="R3D-Jg-95y" secondAttribute="bottom" constant="23" id="frp-Of-aAM"/>
-                <constraint firstItem="fSR-BM-0qR" firstAttribute="top" secondItem="w2f-6b-3Ws" secondAttribute="bottom" id="hzb-O9-Rlk"/>
-                <constraint firstAttribute="centerX" secondItem="w2f-6b-3Ws" secondAttribute="centerX" id="l4f-3d-P50"/>
-                <constraint firstAttribute="centerX" secondItem="Z6M-ux-dFj" secondAttribute="centerX" id="ucQ-7T-aoO"/>
-                <constraint firstItem="Z6M-ux-dFj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="108" id="woa-mJ-D6L"/>
-                <constraint firstAttribute="centerX" secondItem="fSR-BM-0qR" secondAttribute="centerX" id="xR5-PC-mr8"/>
-                <constraint firstItem="CpV-zx-taH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="192" id="yOh-aR-4C1"/>
-            </constraints>
-            <point key="canvasLocation" x="-129" y="113"/>
+            <point key="canvasLocation" x="-129.5" y="112.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="wifi" width="64" height="64"/>
-    </resources>
 </document>
