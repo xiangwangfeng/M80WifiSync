@@ -7,7 +7,7 @@
 //
 
 #import "M80DirectoryDatasource.h"
-#import "M80Util.h"
+@import Photos;
 
 
 
@@ -162,11 +162,14 @@
 - (void)createMedia:(NSDictionary *)info
          completion:(dispatch_block_t)completion
 {
+    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    PHFetchResult *result = [PHAsset fetchAssetsWithALAssetURLs:@[refURL] options:nil];
+    NSString *filename = [[result firstObject] filename];
+    
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     if (image)
     {
-        NSString *filename = [NSString stringWithFormat:@"%@.jpg",[NSDate date]];
-        NSString *filepath = [_dir stringByAppendingString:filename];
+        NSString *filepath = [_dir stringByAppendingPathComponent:filename];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSData *data = UIImageJPEGRepresentation(image, 0.75);
             if ([data writeToFile:filepath atomically:YES])
@@ -192,8 +195,7 @@
         NSURL *url = info[UIImagePickerControllerMediaURL];
         if (url)
         {
-            NSString *filename = [NSString stringWithFormat:@"%@.mp4",[NSDate date]];
-            NSString *filepath = [_dir stringByAppendingString:filename];
+            NSString *filepath = [_dir stringByAppendingPathComponent:filename];
             NSURL *targetFileURL = [NSURL fileURLWithPath:filepath];
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 if ([[NSFileManager defaultManager] copyItemAtURL:url
