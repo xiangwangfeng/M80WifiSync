@@ -12,9 +12,11 @@
 #import "M80DirectoryViewController.h"
 #import "M80PathManager.h"
 #import "M80HttpServer.h"
+#import "M80BackgroundTaskRunner.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 @property (nonatomic,strong)    M80HttpServer *httpServer;
+@property (nonatomic,strong)    M80BackgroundTaskRunner *runner;
 @end
 
 
@@ -27,7 +29,6 @@
     [self initUIAppearance];
     [self initServer];
     [self setupMainViewController];
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     return YES;
 }
 
@@ -36,11 +37,9 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -66,6 +65,7 @@
 - (void)initServer
 {
     _httpServer = [[M80HttpServer alloc] init];
+    _runner = [[M80BackgroundTaskRunner alloc] init];
 }
 
 - (void)setupMainViewController

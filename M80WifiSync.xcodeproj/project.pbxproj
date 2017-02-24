@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		867CCBEF1A6BEF040008589D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 867CCBEC1A6BEF040008589D /* libWeChatSDK.a */; };
+		E4093C981E6012B000F089D6 /* M80BackgroundTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = E4093C971E6012B000F089D6 /* M80BackgroundTaskRunner.m */; };
 		E47C72551A66456300F1C115 /* M80FileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E47C72541A66456300F1C115 /* M80FileModel.m */; };
 		E48009471A68B0A00053B03F /* M80ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48009461A68B0A00053B03F /* M80ExploreViewController.m */; };
 		E48A9A9C1A70D1890026F7AD /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E48A9A9B1A70D1890026F7AD /* libsqlite3.0.dylib */; };
@@ -34,6 +35,8 @@
 		867CCBED1A6BEF040008589D /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		867CCBEE1A6BEF040008589D /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		D471078740BF1D584FAF809A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4093C961E6012B000F089D6 /* M80BackgroundTaskRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80BackgroundTaskRunner.h; sourceTree = "<group>"; };
+		E4093C971E6012B000F089D6 /* M80BackgroundTaskRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80BackgroundTaskRunner.m; sourceTree = "<group>"; };
 		E47C72531A66456300F1C115 /* M80FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80FileModel.h; sourceTree = "<group>"; };
 		E47C72541A66456300F1C115 /* M80FileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80FileModel.m; sourceTree = "<group>"; };
 		E47C72561A66460100F1C115 /* M80WifiSync.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = M80WifiSync.pch; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 		E4D293D01A63712E00563AD0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E4093C961E6012B000F089D6 /* M80BackgroundTaskRunner.h */,
+				E4093C971E6012B000F089D6 /* M80BackgroundTaskRunner.m */,
 				E4D293D41A63751D00563AD0 /* M80PathManager.h */,
 				E4D293D51A63751D00563AD0 /* M80PathManager.m */,
 			);
@@ -245,6 +250,11 @@
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = F79NZ79TVZ;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -322,6 +332,7 @@
 				E4D293D31A63714F00563AD0 /* M80DirectoryViewController.m in Sources */,
 				E4D293DF1A639F1400563AD0 /* M80HttpServer.m in Sources */,
 				E4D293D61A63751D00563AD0 /* M80PathManager.m in Sources */,
+				E4093C981E6012B000F089D6 /* M80BackgroundTaskRunner.m in Sources */,
 				E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */,
 				E47C72551A66456300F1C115 /* M80FileModel.m in Sources */,
 				E48009471A68B0A00053B03F /* M80ExploreViewController.m in Sources */,
