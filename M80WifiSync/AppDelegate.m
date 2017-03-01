@@ -11,11 +11,9 @@
 #import "M80ServerViewController.h"
 #import "M80DirectoryViewController.h"
 #import "M80PathManager.h"
-#import "M80HttpServer.h"
 #import "M80BackgroundTaskRunner.h"
 
 @interface AppDelegate ()<WXApiDelegate>
-@property (nonatomic,strong)    M80HttpServer *httpServer;
 @property (nonatomic,strong)    M80BackgroundTaskRunner *runner;
 @end
 
@@ -27,7 +25,6 @@
 
     [WXApi registerApp:@"wx1ab7c4f3991eb5eb"];
     [self initUIAppearance];
-    [self initServer];
     [self setupMainViewController];
     return YES;
 }
@@ -62,9 +59,8 @@
                                                 forState:UIControlStateNormal];
 }
 
-- (void)initServer
+- (void)setupBackgroundTask
 {
-    _httpServer = [[M80HttpServer alloc] init];
     _runner = [[M80BackgroundTaskRunner alloc] init];
 }
 
@@ -75,14 +71,13 @@
         NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
         M80DirectoryViewController *vc = [[M80DirectoryViewController alloc] initWithDir:dir];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的文件" image:[UIImage imageNamed:@"ic_folder"] tag:0];
+        nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"文件" image:[UIImage imageNamed:@"ic_folder"] tag:0];
         [vcs addObject:nav];
     }
     {
         M80ServerViewController *vc = [[M80ServerViewController alloc] init];
-        vc.server = self.httpServer;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"网络设置" image:[UIImage imageNamed:@"wifi"] tag:1];
+        nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"设置" image:[UIImage imageNamed:@"wifi"] tag:1];
         [vcs addObject:nav];
     }
     UITabBarController *tabController = [[UITabBarController alloc] init];

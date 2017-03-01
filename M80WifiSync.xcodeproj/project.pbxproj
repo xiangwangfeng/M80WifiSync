@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FDE675AEB46FC6227B28DB8 /* libPods-M80WifiSync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D04FA949B0F588D261AB347C /* libPods-M80WifiSync.a */; };
 		867CCBEF1A6BEF040008589D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 867CCBEC1A6BEF040008589D /* libWeChatSDK.a */; };
 		E4093C981E6012B000F089D6 /* M80BackgroundTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = E4093C971E6012B000F089D6 /* M80BackgroundTaskRunner.m */; };
 		E47C72551A66456300F1C115 /* M80FileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E47C72541A66456300F1C115 /* M80FileModel.m */; };
@@ -15,7 +16,6 @@
 		E48A9A9E1A70D1DE0026F7AD /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E48A9A9D1A70D1DE0026F7AD /* libc++.dylib */; };
 		E49813161A70EA35007A2B1D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49813151A70EA35007A2B1D /* MobileCoreServices.framework */; };
 		E4CF21AD1A64ECDA0034A42D /* M80ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */; };
-		E4CF21AE1A64ECDA0034A42D /* M80ServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */; };
 		E4D293AA1A6370B000563AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293A91A6370B000563AD0 /* main.m */; };
 		E4D293AD1A6370B000563AD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293AC1A6370B000563AD0 /* AppDelegate.m */; };
 		E4D293B51A6370B000563AD0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D293B41A6370B000563AD0 /* Images.xcassets */; };
@@ -25,16 +25,15 @@
 		E4D293D91A637D7E00563AD0 /* M80DirectoryDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293D81A637D7E00563AD0 /* M80DirectoryDatasource.m */; };
 		E4D293DF1A639F1400563AD0 /* M80HttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D293DE1A639F1400563AD0 /* M80HttpServer.m */; };
 		E4DF095F1BF96DC6009A9BDC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DF095E1BF96DC6009A9BDC /* CoreTelephony.framework */; };
-		E74EE7D8E459C560FD3D4D66 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D471078740BF1D584FAF809A /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		56C01316B4B793CCD8B17CCE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		57EC9B9829A45DC42B008EEB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		867CCBEC1A6BEF040008589D /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		867CCBED1A6BEF040008589D /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		867CCBEE1A6BEF040008589D /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		D471078740BF1D584FAF809A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A6D34EF13B22875E21E30B /* Pods-M80WifiSync.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M80WifiSync.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M80WifiSync/Pods-M80WifiSync.debug.xcconfig"; sourceTree = "<group>"; };
+		D04FA949B0F588D261AB347C /* libPods-M80WifiSync.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-M80WifiSync.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81DFDF9E82D058D79B94AEE /* Pods-M80WifiSync.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M80WifiSync.release.xcconfig"; path = "Pods/Target Support Files/Pods-M80WifiSync/Pods-M80WifiSync.release.xcconfig"; sourceTree = "<group>"; };
 		E4093C961E6012B000F089D6 /* M80BackgroundTaskRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80BackgroundTaskRunner.h; sourceTree = "<group>"; };
 		E4093C971E6012B000F089D6 /* M80BackgroundTaskRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80BackgroundTaskRunner.m; sourceTree = "<group>"; };
 		E47C72531A66456300F1C115 /* M80FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80FileModel.h; sourceTree = "<group>"; };
@@ -47,7 +46,6 @@
 		E49813151A70EA35007A2B1D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E4CF21AA1A64ECDA0034A42D /* M80ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80ServerViewController.h; sourceTree = "<group>"; };
 		E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80ServerViewController.m; sourceTree = "<group>"; };
-		E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M80ServerViewController.xib; sourceTree = "<group>"; };
 		E4D293A41A6370B000563AD0 /* M80WifiSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M80WifiSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D293A81A6370B000563AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4D293A91A6370B000563AD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -77,7 +75,7 @@
 				E48A9A9E1A70D1DE0026F7AD /* libc++.dylib in Frameworks */,
 				E48A9A9C1A70D1890026F7AD /* libsqlite3.0.dylib in Frameworks */,
 				867CCBEF1A6BEF040008589D /* libWeChatSDK.a in Frameworks */,
-				E74EE7D8E459C560FD3D4D66 /* libPods.a in Frameworks */,
+				0FDE675AEB46FC6227B28DB8 /* libPods-M80WifiSync.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +93,11 @@
 			path = Weixin;
 			sourceTree = "<group>";
 		};
-		A9BA26C8E0E1096727909F08 /* Pods */ = {
+		8DCE9513B24A2E58C25DD412 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				56C01316B4B793CCD8B17CCE /* Pods.debug.xcconfig */,
-				57EC9B9829A45DC42B008EEB /* Pods.release.xcconfig */,
+				C6A6D34EF13B22875E21E30B /* Pods-M80WifiSync.debug.xcconfig */,
+				D81DFDF9E82D058D79B94AEE /* Pods-M80WifiSync.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -111,7 +109,7 @@
 				E49813151A70EA35007A2B1D /* MobileCoreServices.framework */,
 				E48A9A9D1A70D1DE0026F7AD /* libc++.dylib */,
 				E48A9A9B1A70D1890026F7AD /* libsqlite3.0.dylib */,
-				D471078740BF1D584FAF809A /* libPods.a */,
+				D04FA949B0F588D261AB347C /* libPods-M80WifiSync.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,8 +119,8 @@
 			children = (
 				E4D293A61A6370B000563AD0 /* M80WifiSync */,
 				E4D293A51A6370B000563AD0 /* Products */,
-				A9BA26C8E0E1096727909F08 /* Pods */,
 				AAFC87C5769A8C40F6205B4E /* Frameworks */,
+				8DCE9513B24A2E58C25DD412 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,7 +207,6 @@
 				E4D293DE1A639F1400563AD0 /* M80HttpServer.m */,
 				E4CF21AA1A64ECDA0034A42D /* M80ServerViewController.h */,
 				E4CF21AB1A64ECDA0034A42D /* M80ServerViewController.m */,
-				E4CF21AC1A64ECDA0034A42D /* M80ServerViewController.xib */,
 			);
 			path = HttpServer;
 			sourceTree = "<group>";
@@ -221,11 +218,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4D293C71A6370B100563AD0 /* Build configuration list for PBXNativeTarget "M80WifiSync" */;
 			buildPhases = (
-				C1E797DE618B3C3A3E98241C /* Check Pods Manifest.lock */,
+				EAE1EE9DEEF4AE4CEEC22875 /* [CP] Check Pods Manifest.lock */,
 				E4D293A01A6370B000563AD0 /* Sources */,
 				E4D293A11A6370B000563AD0 /* Frameworks */,
 				E4D293A21A6370B000563AD0 /* Resources */,
-				DF90AC3261627EB3D859A107 /* Copy Pods Resources */,
+				B87F1D1D9375FE4B08DFE99C /* [CP] Embed Pods Frameworks */,
+				9A890A539493C69EB3333809 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,41 +281,55 @@
 			files = (
 				E4D293B81A6370B000563AD0 /* LaunchScreen.xib in Resources */,
 				E4D293B51A6370B000563AD0 /* Images.xcassets in Resources */,
-				E4CF21AE1A64ECDA0034A42D /* M80ServerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C1E797DE618B3C3A3E98241C /* Check Pods Manifest.lock */ = {
+		9A890A539493C69EB3333809 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M80WifiSync/Pods-M80WifiSync-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF90AC3261627EB3D859A107 /* Copy Pods Resources */ = {
+		B87F1D1D9375FE4B08DFE99C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M80WifiSync/Pods-M80WifiSync-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAE1EE9DEEF4AE4CEEC22875 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -439,7 +451,7 @@
 		};
 		E4D293C81A6370B100563AD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56C01316B4B793CCD8B17CCE /* Pods.debug.xcconfig */;
+			baseConfigurationReference = C6A6D34EF13B22875E21E30B /* Pods-M80WifiSync.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -462,7 +474,7 @@
 		};
 		E4D293C91A6370B100563AD0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57EC9B9829A45DC42B008EEB /* Pods.release.xcconfig */;
+			baseConfigurationReference = D81DFDF9E82D058D79B94AEE /* Pods-M80WifiSync.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

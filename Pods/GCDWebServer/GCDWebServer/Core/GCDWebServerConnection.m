@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2012-2014, Pierre-Olivier Latour
+ Copyright (c) 2012-2015, Pierre-Olivier Latour
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
@@ -548,6 +548,8 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
           }
         }
         if (_request) {
+          _request.localAddressData = self.localAddressData;
+          _request.remoteAddressData = self.remoteAddressData;
           if ([_request hasBody]) {
             [_request prepareForWriting];
             if (_request.usesChunkedTransferEncoding || (extraData.length <= _request.contentLength)) {
@@ -764,15 +766,19 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
   }
 }
 
+// http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25
 // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.26
 static inline BOOL _CompareResources(NSString* responseETag, NSString* requestETag, NSDate* responseLastModified, NSDate* requestLastModified) {
-  if ([requestETag isEqualToString:@"*"] && (!responseLastModified || !requestLastModified || ([responseLastModified compare:requestLastModified] != NSOrderedDescending))) {
-    return YES;
-  } else {
-    if ([responseETag isEqualToString:requestETag]) {
+  if (requestLastModified && responseLastModified) {
+    if ([responseLastModified compare:requestLastModified] != NSOrderedDescending) {
       return YES;
     }
-    if (responseLastModified && requestLastModified && ([responseLastModified compare:requestLastModified] != NSOrderedDescending)) {
+  }
+  if (requestETag && responseETag) {  // Per the specs "If-None-Match" must be checked after "If-Modified-Since"
+    if ([requestETag isEqualToString:@"*"]) {
+      return YES;
+    }
+    if ([responseETag isEqualToString:requestETag]) {
       return YES;
     }
   }

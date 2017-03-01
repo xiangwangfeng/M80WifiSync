@@ -1,0 +1,9 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GCDWebServer" "${PODS_ROOT}/Headers/Public/M80Kit" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/Toast" "${PODS_ROOT}/Headers/Public/XLForm"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/GCDWebServer" "$PODS_CONFIGURATION_BUILD_DIR/M80Kit" "$PODS_CONFIGURATION_BUILD_DIR/Reachability" "$PODS_CONFIGURATION_BUILD_DIR/Toast" "$PODS_CONFIGURATION_BUILD_DIR/XLForm"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/GCDWebServer" -isystem "${PODS_ROOT}/Headers/Public/M80Kit" -isystem "${PODS_ROOT}/Headers/Public/Reachability" -isystem "${PODS_ROOT}/Headers/Public/Toast" -isystem "${PODS_ROOT}/Headers/Public/XLForm"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"GCDWebServer" -l"M80Kit" -l"Reachability" -l"Toast" -l"XLForm" -l"z" -framework "CFNetwork" -framework "CoreGraphics" -framework "Foundation" -framework "MobileCoreServices" -framework "QuartzCore" -framework "SystemConfiguration" -framework "UIKit"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}/Pods

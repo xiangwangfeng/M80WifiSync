@@ -13,9 +13,8 @@
 
 #define M80ServerPort   (1280)
 
-@interface M80HttpServer ()
+@interface M80HttpServer ()<GCDWebServerDelegate>
 @property (nonatomic,strong)    GCDWebUploader  *uploader;
-@property (nonatomic,copy)      NSString *lastClipContent;
 @end
 
 @implementation M80HttpServer
@@ -27,22 +26,64 @@
         NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
         _uploader = [[GCDWebUploader alloc] initWithUploadDirectory:dir];
         _uploader.allowHiddenItems = YES;
-        [_uploader startWithPort:1280
-                     bonjourName:nil];
+        _uploader.delegate = self;
         
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 - (NSString *)url
 {
     return [[_uploader serverURL] absoluteString];
 }
+
+- (BOOL)isRunning
+{
+    return [_uploader isRunning];
+}
+
+- (BOOL)start
+{
+    return [_uploader startWithPort:1280
+                        bonjourName:@"amaowifi"];
+}
+
+
+- (void)stop
+{
+    [_uploader stop];
+}
+
+#pragma mark - GCDWebUploaderDelegate
+- (void)webServerDidStart:(GCDWebServer*)server
+{
+     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+}
+
+- (void)webServerDidCompleteBonjourRegistration:(GCDWebServer*)server
+{
+
+}
+
+
+- (void)webServerDidConnect:(GCDWebServer*)server
+{
+
+}
+
+- (void)webServerDidDisconnect:(GCDWebServer*)server
+{
+
+}
+
+
+- (void)webServerDidStop:(GCDWebServer*)server
+{
+     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+}
+
+
 
 
 

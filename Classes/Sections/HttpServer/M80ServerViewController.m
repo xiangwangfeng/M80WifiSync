@@ -11,11 +11,14 @@
 #import "M80PathManager.h"
 #import "M80Kit.h"
 #import "Reachability.h"
+#import "UIView+Toast.h"
+
+static NSString *wifiTag = @"wifi_tag";
+static NSString *urlTag = @"url_tag";
 
 @interface M80ServerViewController ()
-
 @property (strong, nonatomic) Reachability *reachability;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) M80HttpServer *server;
 @end
 
 @implementation M80ServerViewController
@@ -29,9 +32,10 @@
     [super viewDidLoad];
     
     
-    self.navigationItem.title = NSLocalizedString(@"使用说明", nil);
+    self.navigationItem.title = NSLocalizedString(@"设置", nil);
     self.view.backgroundColor = [UIColor whiteColor];
 
+    _server = [[M80HttpServer alloc] init];
 
     _reachability = [Reachability reachabilityForInternetConnection];
     [_reachability startNotifier];
@@ -40,34 +44,80 @@
                                              selector:@selector(onNetChanged:)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
-    _textView.dataDetectorTypes = UIDataDetectorTypeLink;
-    _textView.font = [UIFont systemFontOfSize:20];
-    [self updateUI];
+    
+    [self setupForm];
 }
 
-- (void)updateUI
+
+- (void)setupForm
 {
-    BOOL wifiOn = [_reachability isReachableViaWiFi];
-    if (wifiOn)
+    XLFormDescriptor *form = [XLFormDescriptor formDescriptorWithTitle:@"设置"];
+    
     {
-        _textView.text = [NSString stringWithFormat:@"请在电脑浏览器中输入以下网址：\n%@\n并保证手机和电脑处于同一网络下",[_server url]];
+        XLFormSectionDescriptor *section = [XLFormSectionDescriptor formSectionWithTitle:@"文件传输"];
+        [form addFormSection:section];
+        
+        {
+            __weak typeof(self) weakSelf = self;
+            XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:wifiTag
+                                                                             rowType:XLFormRowDescriptorTypeBooleanSwitch
+                                                                               title:@"开启 Wifi 传输"];
+            [section addFormRow:row];
+            row.onChangeBlock =  ^(id __nullable oldValue,id __nullable newValue,XLFormRowDescriptor* __nonnull rowDescriptor)
+            {
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                [strongSelf updateUI];
+            };
+
+
+        }
+        
+        {
+            XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:urlTag
+                                                                             rowType:XLFormRowDescriptorTypeText
+                                                                               title:@"地址"];
+            [section addFormRow:row];
+            row.hidden = @(YES);
+        }
+        
     }
-    else
-    {
-        _textView.text = @"手机没有接入 wifi，请连接 wifi，并保证手机和电脑处于同一网络下";
-    }
-}
+    
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
+    self.form = form;
 }
 
 - (void)onNetChanged:(NSNotification *)aNotification
 {
-    [self updateUI];
+    
 }
+
+- (void)updateUI
+{
+    //这个地方如果失败了，提示也没啥意义了。。。╮(╯▽╰)╭
+    XLFormRowDescriptor *wifi = [self.form formRowWithTag:wifiTag];
+    XLFormRowDescriptor *url = [self.form formRowWithTag:urlTag];
+    BOOL on = [wifi.value boolValue];
+    if (on)
+    {
+        [_server start];
+    }
+    else
+    {
+        [_server stop];
+    }
+    BOOL serverOn = [_server isRunning];
+    
+    if (serverOn != on)
+    {
+        on = serverOn;
+        wifi.value = @(on);
+    }
+    url.value = [_server url];
+    url.hidden = @(!on);
+
+}
+
+
 
 
 @end

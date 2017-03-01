@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2012-2014, Pierre-Olivier Latour
+ Copyright (c) 2012-2015, Pierre-Olivier Latour
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
@@ -76,7 +76,7 @@ function _reload(path) {
     data: {path: path},
     dataType: 'json'
   }).fail(function(jqXHR, textStatus, errorThrown) {
-    _showError("获取信息失败 \"" + path + "\"", textStatus, errorThrown);
+    _showError("Failed retrieving contents of \"" + path + "\"", textStatus, errorThrown);
   }).done(function(data, textStatus, jqXHR) {
     var scrollPosition = $(document).scrollTop();
     
@@ -115,7 +115,7 @@ function _reload(path) {
           data: {oldPath: path, newPath: _path + value},
           dataType: 'json'
         }).fail(function(jqXHR, textStatus, errorThrown) {
-          _showError("移动 \"" + path + "\" 到 \"" + _path + value + "\" 失败 ", textStatus, errorThrown);
+          _showError("Failed moving \"" + path + "\" to \"" + _path + value + "\"", textStatus, errorThrown);
         }).always(function() {
           _reload(_path);
         });
@@ -131,7 +131,7 @@ function _reload(path) {
       onreset: function(settings, original) {
         _enableReloads();
       },
-      tooltip: '点击重命名'
+      tooltip: 'Click to rename...'
     });
     
     $(".button-download").click(function(event) {
@@ -164,7 +164,7 @@ function _reload(path) {
         data: {path: path},
         dataType: 'json'
       }).fail(function(jqXHR, textStatus, errorThrown) {
-        _showError("删除文件失败 \"" + path + "\"", textStatus, errorThrown);
+        _showError("Failed deleting \"" + path + "\"", textStatus, errorThrown);
       }).always(function() {
         _reload(_path);
       });
@@ -235,7 +235,7 @@ $(document).ready(function() {
     fail: function(e, data) {
       var file = data.files[0];
       if (data.errorThrown != "abort") {
-        _showError("上传文件 \"" + file.name + "\" 到 \"" + _path + "\" 失败 ", data.textStatus, data.errorThrown);
+        _showError("Failed uploading \"" + file.name + "\" to \"" + _path + "\"", data.textStatus, data.errorThrown);
       }
     },
     
@@ -257,7 +257,7 @@ $(document).ready(function() {
   });
   
   $("#create-folder").click(function(event) {
-    $("#create-input").val("未命名文件夹");
+    $("#create-input").val("Untitled folder");
     $("#create-modal").modal("show");
   });
   
@@ -271,7 +271,7 @@ $(document).ready(function() {
         data: {path: _path + name},
         dataType: 'json'
       }).fail(function(jqXHR, textStatus, errorThrown) {
-        _showError("创建目录失败 \"" + name + "\" in \"" + _path + "\"", textStatus, errorThrown);
+        _showError("Failed creating folder \"" + name + "\" in \"" + _path + "\"", textStatus, errorThrown);
       }).always(function() {
         _reload(_path);
       });
@@ -300,7 +300,7 @@ $(document).ready(function() {
         data: {oldPath: oldPath, newPath: newPath},
         dataType: 'json'
       }).fail(function(jqXHR, textStatus, errorThrown) {
-        _showError("重命名失败 \"" + oldPath + "\" to \"" + newPath + "\"", textStatus, errorThrown);
+        _showError("Failed moving \"" + oldPath + "\" to \"" + newPath + "\"", textStatus, errorThrown);
       }).always(function() {
         _reload(_path);
       });

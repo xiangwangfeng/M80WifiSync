@@ -1,6 +1,6 @@
 PODS:
-  - GCDWebServer/Core (3.2.2)
-  - GCDWebServer/WebUploader (3.2.2):
+  - GCDWebServer/Core (3.2.7)
+  - GCDWebServer/WebUploader (3.2.7):
     - GCDWebServer/Core
   - M80Kit (1.0.6):
     - M80Kit/Categories (= 1.0.6)
@@ -11,17 +11,22 @@ PODS:
   - M80Kit/Util (1.0.6)
   - Reachability (3.2)
   - Toast (2.4)
+  - XLForm (3.3.0)
 
 DEPENDENCIES:
   - GCDWebServer/WebUploader (~> 3.2.1)
   - M80Kit (~> 1.0.4)
   - Reachability (~> 3.2)
   - Toast (~> 2.4)
+  - XLForm (~> 3.3.0)
 
 SPEC CHECKSUMS:
-  GCDWebServer: 5320220ad0d497da8e7beca1396f0c82d4f83730
+  GCDWebServer: 76a9540371d5f12f850b32ec7f555dd2d266e543
   M80Kit: 242a72aed264c7feb03dad314fcce8acf341691c
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+  XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
 
-COCOAPODS: 0.37.1
+PODFILE CHECKSUM: 13e9a46774ee0083b533ffba0e55279ab3fbb405
+
+COCOAPODS: 1.1.1

@@ -9,4 +9,7 @@
 
 @interface M80HttpServer : NSObject
 - (NSString *)url;
+- (BOOL)isRunning;
+- (BOOL)start;
+- (void)stop;
 @end
