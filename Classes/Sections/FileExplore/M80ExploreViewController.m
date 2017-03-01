@@ -228,9 +228,10 @@ didFinishSavingWithError:(NSError *) error
 {
     [super viewDidLoad];
     
+    
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imageView.image = [UIImage imageWithContentsOfFile:self.filepath];
-    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [imageView setContentMode:UIViewContentModeScaleToFill];
     [imageView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     [self.view addSubview:imageView];
 }
