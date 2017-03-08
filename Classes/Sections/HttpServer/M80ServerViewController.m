@@ -74,7 +74,7 @@ static NSString *urlTag = @"url_tag";
         
         {
             XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:urlTag
-                                                                             rowType:XLFormRowDescriptorTypeText
+                                                                             rowType:XLFormRowDescriptorTypeInfo
                                                                                title:@"地址"];
             [section addFormRow:row];
             row.hidden = @(YES);

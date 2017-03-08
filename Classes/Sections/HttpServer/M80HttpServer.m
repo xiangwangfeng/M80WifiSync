@@ -13,7 +13,7 @@
 
 #define M80ServerPort   (1280)
 
-@interface M80HttpServer ()<GCDWebServerDelegate>
+@interface M80HttpServer ()
 @property (nonatomic,strong)    GCDWebUploader  *uploader;
 @end
 
@@ -26,7 +26,6 @@
         NSString *dir = [[M80PathManager sharedManager] fileStoragePath];
         _uploader = [[GCDWebUploader alloc] initWithUploadDirectory:dir];
         _uploader.allowHiddenItems = YES;
-        _uploader.delegate = self;
         
     }
     return self;
@@ -54,36 +53,6 @@
 {
     [_uploader stop];
 }
-
-#pragma mark - GCDWebUploaderDelegate
-- (void)webServerDidStart:(GCDWebServer*)server
-{
-     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-}
-
-- (void)webServerDidCompleteBonjourRegistration:(GCDWebServer*)server
-{
-
-}
-
-
-- (void)webServerDidConnect:(GCDWebServer*)server
-{
-
-}
-
-- (void)webServerDidDisconnect:(GCDWebServer*)server
-{
-
-}
-
-
-- (void)webServerDidStop:(GCDWebServer*)server
-{
-     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-}
-
-
 
 
 
